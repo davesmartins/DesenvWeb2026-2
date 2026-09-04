@@ -1,0 +1,48 @@
+body{
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.box{
+    border: 2px solid #000;
+    background-color: #a4a7a6d3;
+    padding: 25px;
+    margin: 10px;
+}
+
+.cabec{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background-color: #084cf8;
+}
+
+.home{
+    position:relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 800px;
+}
+
+.menu{
+    position:absolute;
+    left: 0;
+    top:161px;
+    width: 200px;
+    bottom: 0;
+    background-color: #86f62a;
+}
+
+.rodape{
+    position: absolute;
+    bottom: 0;
+    left: 250px;
+    right: 0;
+    height: 100px;
+    background-color: #ffff1b;
+}

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemplo 1 - Posicionamento CSS Tradicional</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background-color: #f8fafc;
+      color: #1e293b;
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #3b82f6;
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .nav-btn {
+      display: inline-block;
+      margin-bottom: 15px;
+      padding: 8px 16px;
+      background-color: #475569;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 0.9rem;
+    }
+    .nav-btn:hover { background-color: #334155; }
+
+    /* --------------------------------------------------------
+       ESTRUTURA DO LAYOUT USANDO POSITION
+       -------------------------------------------------------- */
+    
+    /* Container Pai: position: relative serve como âncora para os filhos absolutos */
+    .page-container {
+      position: relative;
+      min-height: 500px;
+      background-color: white;
+      border: 2px dashed #94a3b8;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Topo com STICKY: Gruda no topo quando você rola a página */
+    .sticky-header {
+      position: sticky;
+      top: 10px;
+      background: linear-gradient(90deg, #2563eb, #3b82f6);
+      color: white;
+      padding: 15px 20px;
+      border-radius: 8px;
+      z-index: 10;
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+    }
+
+    /* Conteúdo Principal: usa margem à direita para não ser coberto pela Sidebar absoluta */
+    .main-content {
+      margin-top: 20px;
+      margin-right: 240px; /* Garante espaço para a sidebar */
+      padding: 20px;
+      background-color: #f1f5f9;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+    }
+
+    /* Sidebar com ABSOLUTE: Fixada no canto superior direito do container pai */
+    .sidebar-absolute {
+      position: absolute;
+      top: 85px;
+      right: 20px;
+      width: 210px;
+      background-color: #e2e8f0;
+      border: 1px solid #cbd5e1;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    /* Badge Flutuante com ABSOLUTE no canto inferior */
+    .badge-absolute {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background-color: #ef4444;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 0.85rem;
+      box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+    }
+
+    /* Notificação com FIXED: Fixada no canto da tela do navegador */
+    .notification-fixed {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #0f172a;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      font-size: 0.85rem;
+      z-index: 100;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="nav-btn">← Voltar ao Menu Principal</a>
+
+  <header>
+    <h1>1. Exemplo de Posicionamento CSS Pure (`position`)</h1>
+    <p>Utilizando static, relative, absolute, fixed e sticky</p>
+  </header>
+
+  <!-- Container Geral da Tela -->
+  <div class="page-container">
+
+    <!-- Cabeçalho Interno Sticky -->
+    <div class="sticky-header">
+      <strong>Cabeçalho Interno (position: sticky; top: 10px)</strong>
+    </div>
+
+    <!-- Área de Conteúdo -->
+    <div class="main-content">
+      <h2>Conteúdo Principal (Fluxo Normal + Margin)</h2>
+      <p>Este bloco segue o fluxo padrão, porém adicionamos <code>margin-right: 240px</code> para evitar que a sidebar (absoluta) sobreponha este texto.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+
+    <!-- Barra Lateral Absoluta -->
+    <div class="sidebar-absolute">
+      <h3>Sidebar</h3>
+      <p><code>position: absolute;</code></p>
+      <small>Fixada a 85px do topo e 20px da direita do pai (relative).</small>
+    </div>
+
+    <!-- Badge Flutuante Absoluta -->
+    <div class="badge-absolute">
+      Badge (position: absolute)
+    </div>
+
+  </div>
+
+  <!-- Elemento Fixo na Tela toda -->
+  <div class="notification-fixed">
+    📌 Notificação (position: fixed; bottom: 20px; left: 20px)
+  </div>
+
+</body>
+</html>

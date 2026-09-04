@@ -1,0 +1,14 @@
+
+.box{
+background-color: #0cee81;
+padding: 20px;
+margin: 10px;
+height: 100px;
+width: 100px;
+}
+.blue{
+    background-color: rgb(120, 120, 249);
+}
+.red{
+    background-color: rgb(227, 66, 66);
+}

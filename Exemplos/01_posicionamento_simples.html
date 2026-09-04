@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemplo Simples - Todos os Position</title>
+  <style>
+    /* Estilos básicos de visualização */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      margin: 0;
+      padding: 20px;
+      height: 2000px; /* Altura grande para testar a rolagem (scroll) */
+    }
+
+    h1 { text-align: center; color: #1e293b; }
+    p.instrucao { text-align: center; color: #64748b; margin-bottom: 30px; }
+
+    /* Caixas de exemplo para os alunos */
+    .box {
+      padding: 15px;
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    /* -------------------------------------------------------------
+       1. POSITION: STATIC (Padrão)
+       ------------------------------------------------------------- */
+    .caixa-static {
+      position: static;
+      background-color: #64748b; /* Cinza */
+    }
+
+    /* -------------------------------------------------------------
+       2. POSITION: RELATIVE
+       Desloca a caixa a partir da sua posição ORIGINAL
+       ------------------------------------------------------------- */
+    .caixa-relative {
+      position: relative;
+      top: 20px;  /* Empurra 20px para BAIXO */
+      left: 30px; /* Empurra 30px para a DIREITA */
+      background-color: #2563eb; /* Azul */
+    }
+
+    /* -------------------------------------------------------------
+       CONTAINER PAI (para testar o Absolute)
+       ------------------------------------------------------------- */
+    .pai-container {
+      position: relative; /* O pai DEVE ter position diferente de static */
+      background-color: #e2e8f0;
+      border: 3px dashed #94a3b8;
+      padding: 20px;
+      height: 180px;
+      margin-top: 40px;
+      border-radius: 8px;
+      color: #334155;
+    }
+
+    /* -------------------------------------------------------------
+       3. POSITION: ABSOLUTE
+       Posiciona em relação ao PAI com position: relative
+       ------------------------------------------------------------- */
+    .caixa-absolute {
+      position: absolute;
+      top: 10px;    /* 10px do TOPO do pai */
+      right: 10px;  /* 10px da DIREITA do pai */
+      background-color: #ea580c; /* Laranja */
+      width: 220px;
+    }
+
+    /* -------------------------------------------------------------
+       4. POSITION: STICKY
+       Se comporta como relative, mas GRUDA no topo no scroll
+       ------------------------------------------------------------- */
+    .caixa-sticky {
+      position: sticky;
+      top: 10px; /* Quando o scroll chegar a 10px do topo, ela gruda */
+      background-color: #16a34a; /* Verde */
+      z-index: 10;
+    }
+
+    /* -------------------------------------------------------------
+       5. POSITION: FIXED
+       Fixado em relação à JANELA DO NAVEGADOR (Viewport)
+       ------------------------------------------------------------- */
+    .caixa-fixed {
+      position: fixed;
+      bottom: 20px; /* 20px do RODAPÉ da tela */
+      right: 20px;  /* 20px da DIREITA da tela */
+      background-color: #dc2626; /* Vermelho */
+      z-index: 100;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="index.html" style="display:inline-block; margin-bottom:15px; text-decoration:none; color:#2563eb; font-weight:bold;">← Voltar ao Menu</a>
+
+  <h1>Aprenda CSS Position (Exemplo Didático)</h1>
+  <p class="instrucao">Role a página para baixo para testar o comportamento do <b>Sticky</b> e do <b>Fixed</b>!</p>
+
+  <!-- 1. STATIC -->
+  <div class="box caixa-static">
+    1. STATIC (Padrão)<br>
+    <small>Segue a ordem normal da página. Ignora top/left/right/bottom.</small>
+  </div>
+
+  <!-- 4. STICKY (colocado aqui para você ver ele grudando no topo) -->
+  <div class="box caixa-sticky">
+    4. STICKY (Colante)<br>
+    <small>Role a tela! Quando chegar no topo (top: 10px), eu vou GRUDAR!</small>
+  </div>
+
+  <!-- 2. RELATIVE -->
+  <div class="box caixa-relative">
+    2. RELATIVE (Relativo a si mesmo)<br>
+    <small>Fui movido top: 20px e left: 30px da minha posição original.</small>
+  </div>
+
+  <!-- CONTAINER PAI E ABSOLUTE -->
+  <div class="pai-container">
+    <b>Container Pai (position: relative)</b>
+    <p>Este retângulo cinza é a referência para o filho absoluto.</p>
+
+    <!-- 3. ABSOLUTE -->
+    <div class="box caixa-absolute">
+      3. ABSOLUTE<br>
+      <small>Estou preso no canto superior direito do PAI (top: 10px; right: 10px;).</small>
+    </div>
+  </div>
+
+  <!-- 5. FIXED -->
+  <div class="box caixa-fixed">
+    5. FIXED (Fixo na Tela)<br>
+    <small>Fico sempre preso aqui no canto da tela (bottom: 20px; right: 20px), mesmo rolando!</small>
+  </div>
+
+  <div style="margin-top: 100px; color: #94a3b8; text-align: center;">
+    <p>↓ Continue rolando a página para ver o efeito do <b>Sticky</b> e do <b>Fixed</b> em ação! ↓</p>
+  </div>
+
+</body>
+</html>

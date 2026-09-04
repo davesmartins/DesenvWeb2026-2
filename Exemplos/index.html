@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula Desenvolvimento Web - Exemplos Práticos</title>
+  <!-- Bootstrap 5 CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #0f172a;
+      color: #f8fafc;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .main-card {
+      background-color: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .main-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .badge-code {
+      font-family: monospace;
+      background-color: #0f172a;
+      color: #38bdf8;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="py-5">
+
+  <div class="container">
+    
+    <!-- Cabeçalho Principal -->
+    <header class="text-center mb-5">
+      <span class="badge bg-primary px-3 py-2 fs-6 mb-2">Desenvolvimento Web</span>
+      <h1 class="display-4 fw-bold">Posicionamento, Flexbox e Bootstrap</h1>
+      <p class="lead text-secondary">Exemplos práticos criados em arquivos separados para sua aula.</p>
+    </header>
+
+    <!-- Cards dos Exemplos Separados -->
+    <div class="row g-4">
+      
+      <!-- CARD INICIANTE -->
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 main-card text-white p-3">
+          <div class="card-body d-flex flex-column">
+            <span class="badge bg-warning text-dark align-self-start mb-2">Iniciante</span>
+            <h4 class="card-title h5">Todos os Position (Simples)</h4>
+            <p class="card-text text-secondary small">
+              Exemplo super didático com os 5 tipos de <span class="badge-code">position</span> em caixas coloridas simples.
+            </p>
+            <div class="mt-auto pt-3">
+              <a href="01_posicionamento_simples.html" class="btn btn-warning btn-sm w-100 fw-bold">
+                Abrir Simples ⭐
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 1 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 main-card text-white p-3">
+          <div class="card-body d-flex flex-column">
+            <span class="badge bg-info text-dark align-self-start mb-2">Exemplo 1</span>
+            <h4 class="card-title h5">Layout com Position</h4>
+            <p class="card-text text-secondary small">
+              Layout de tela montado com <span class="badge-code">relative</span>, <span class="badge-code">absolute</span> e <span class="badge-code">sticky</span>.
+            </p>
+            <div class="mt-auto pt-3">
+              <a href="01_posicionamento_css.html" class="btn btn-outline-info btn-sm w-100 fw-bold">
+                Abrir Layout CSS →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 main-card text-white p-3">
+          <div class="card-body d-flex flex-column">
+            <span class="badge bg-purple bg-light text-dark align-self-start mb-2">Exemplo 2</span>
+            <h4 class="card-title h5">CSS Flexbox</h4>
+            <p class="card-text text-secondary small">
+              Layout montado com modelo 1D: <span class="badge-code">display: flex</span>, <span class="badge-code">justify-content</span>, etc.
+            </p>
+            <div class="mt-auto pt-3">
+              <a href="02_flexbox.html" class="btn btn-outline-light btn-sm w-100 fw-bold">
+                Abrir Flexbox →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 main-card text-white p-3">
+          <div class="card-body d-flex flex-column">
+            <span class="badge bg-success align-self-start mb-2">Exemplo 3</span>
+            <h4 class="card-title h5">Bootstrap 5</h4>
+            <p class="card-text text-secondary small">
+              Layout com Grid de 12 colunas (<span class="badge-code">row</span>, <span class="badge-code">col-md-*</span>) e utilitários.
+            </p>
+            <div class="mt-auto pt-3">
+              <a href="03_bootstrap.html" class="btn btn-outline-success btn-sm w-100 fw-bold">
+                Abrir Bootstrap →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Tabela Resumo Didática -->
+    <div class="mt-5 p-4 main-card">
+      <h3 class="h4 text-primary mb-3">💡 Qual técnica escolher no dia a dia?</h3>
+      <div class="table-responsive">
+        <table class="table table-dark table-hover mb-0 align-middle">
+          <thead>
+            <tr>
+              <th>Conceito</th>
+              <th>Melhor Caso de Uso</th>
+              <th>Vantagem</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong class="text-warning">CSS Position</strong></td>
+              <td>Badges flutuantes, botões fixos de WhatsApp/Chat, menus fixos no topo ao rolar.</td>
+              <td>Controle milimétrico sobre onde colocar um elemento específico na tela.</td>
+            </tr>
+            <tr>
+              <td><strong class="text-light">Flexbox</strong></td>
+              <td>Navbars, alinhamento de cards, distribuição uniforme de itens em 1 linha ou 1 coluna.</td>
+              <td>Responsivo, fluido e calcula espaços vazios automaticamente.</td>
+            </tr>
+            <tr>
+              <td><strong class="text-success">Bootstrap 5</strong></td>
+              <td>Prototipagem rápida, dashboards complexos de 12 colunas, compatibilidade mobile imediata.</td>
+              <td>Classes utilitárias prontas sem precisar escrever CSS do zero.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

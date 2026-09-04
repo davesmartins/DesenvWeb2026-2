@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemplo 2 - Layout com Flexbox</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background-color: #faf5ff;
+      color: #3b0764;
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #7c3aed, #6366f1);
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .nav-btn {
+      display: inline-block;
+      margin-bottom: 15px;
+      padding: 8px 16px;
+      background-color: #475569;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 0.9rem;
+    }
+    .nav-btn:hover { background-color: #334155; }
+
+    /* --------------------------------------------------------
+       ESTRUTURA DO LAYOUT USANDO FLEXBOX
+       -------------------------------------------------------- */
+
+    /* Container Principal Flex em Coluna */
+    .flex-page-container {
+      display: flex;
+      flex-direction: column; /* Organiza os filhos verticalmente */
+      gap: 20px; /* Espaçamento automático entre as seções */
+      min-height: 500px;
+      background-color: white;
+      border: 2px dashed #a855f7;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Cabeçalho Flex: alinha título à esquerda e status à direita */
+    .flex-header {
+      display: flex;
+      justify-content: space-between; /* Empurra os itens para os extremos */
+      align-items: center; /* Centraliza verticalmente */
+      background-color: #9333ea;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 8px;
+    }
+
+    .status-tag {
+      background-color: #a855f7;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+
+    /* Corpo do Layout Flex: alinha Conteúdo e Sidebar em Linha */
+    .flex-body {
+      display: flex;
+      gap: 20px; /* Espaço entre Conteúdo e Sidebar */
+      flex-grow: 1; /* Ocupa o espaço vertical restante */
+    }
+
+    /* Conteúdo ocupa 3 partes proporcionalmente */
+    .flex-main {
+      flex: 3; /* flex-grow: 3 */
+      background-color: #f3e8ff;
+      border: 1px solid #d8b4fe;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    /* Sidebar ocupa 1 parte proporcionalmente */
+    .flex-sidebar {
+      flex: 1; /* flex-grow: 1 */
+      background-color: #fae8ff;
+      border: 1px solid #f0abfc;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    /* Badge posicionada usando align-self do Flexbox */
+    .flex-badge {
+      align-self: flex-end; /* Alinha este item específico no final do container */
+      background-color: #10b981;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="nav-btn">← Voltar ao Menu Principal</a>
+
+  <header>
+    <h1>2. Exemplo de Montagem com Flexbox</h1>
+    <p>Layout fluido usando display: flex, flex-direction, justify-content e align-items</p>
+  </header>
+
+  <!-- Container Geral da Tela (flex-direction: column) -->
+  <div class="flex-page-container">
+
+    <!-- Header com Flexbox -->
+    <div class="flex-header">
+      <h2>Header Flex (justify-content: space-between)</h2>
+      <span class="status-tag">Painel Flexbox</span>
+    </div>
+
+    <!-- Corpo com Flexbox (display: flex; flex-direction: row) -->
+    <div class="flex-body">
+      
+      <div class="flex-main">
+        <h3>Conteúdo Principal (flex: 3)</h3>
+        <p>No Flexbox, não precisamos calcular larguras com <code>px</code> nem usar <code>margin-right</code> manual. O atributo <code>flex: 3</code> expande este bloco proporcionalmente.</p>
+        <p>Se a tela dimunuir, os elementos se ajustam automaticamente de forma responsiva.</p>
+      </div>
+
+      <div class="flex-sidebar">
+        <h3>Sidebar (flex: 1)</h3>
+        <p>Ocupa 1/4 do espaço horizontal automaticamente.</p>
+      </div>
+
+    </div>
+
+    <!-- Elemento alinhado com Flexbox -->
+    <div class="flex-badge">
+      Badge Flex (align-self: flex-end)
+    </div>
+
+  </div>
+
+</body>
+</html>
