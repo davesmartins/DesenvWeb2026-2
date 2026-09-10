@@ -1,0 +1,133 @@
+/* Reset Básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0f172a;
+  padding: 30px;
+  font-family: sans-serif;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.titulo-exemplo {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #94a3b8;
+  border-bottom: 2px solid #334155;
+  padding-bottom: 8px;
+}
+
+.grid-pagina {
+  display: grid;
+  grid-template-columns: 200px 1fr 180px; /* Coluna Esquerda | Principal | Coluna Direita */
+  grid-template-rows: 70px 350px 50px;    /* Linha Topo | Conteúdo | Rodapé */
+  grid-template-areas: 
+    "topo topo topo"
+    "sidebar-esq main sidebar-dir"
+    "rodape rodape rodape";
+  gap: 15px;
+}
+
+.topo {
+  grid-area: topo;
+  background-color: #8b5cf6; /* Roxo */
+  border-radius: 8px;
+  padding: 0 20px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 45px;
+  height: 45px;
+  background-color: #f43f5e; 
+  border-radius: 8px;
+}
+
+
+.menu-navegacao ul {
+  display: flex;
+  list-style: none;
+  gap: 15px;
+}
+
+.menu-navegacao li {
+  width: 60px;
+  height: 25px;
+  background-color: #38bdf8; 
+  border-radius: 4px;
+}
+
+.botao-perfil {
+  width: 40px;
+  height: 40px;
+  background-color: #10b981;
+  border-radius: 50%; 
+}
+
+.sidebar-esquerda {
+  grid-area: sidebar-esq;
+  background-color: #f97316; 
+  border-radius: 8px;
+}
+
+
+.conteudo-principal {
+  grid-area: main;
+  background-color: #10b981; 
+  border-radius: 8px;
+}
+
+
+.sidebar-direita {
+  grid-area: sidebar-dir;
+  background-color: #eab308; 
+  border-radius: 8px;
+}
+
+
+.rodape {
+  grid-area: rodape;
+  background-color: #ec4899;
+  border-radius: 8px;
+}
+
+
+.flex-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.card {
+  flex: 1 1 180px; 
+  height: 120px;
+  border-radius: 8px;
+}
+
+.card-1 { background-color: #06b6d4; } 
+.card-2 { background-color: #84cc16; } 
+.card-3 { background-color: #a855f7; } 
+.card-4 { background-color: #f43f5e; } 
+
+
+.mn-lateral ul{
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  justify-content: center;
+  align-items:  center;
+  margin: 20px;
+}
+
+.mn-lateral ul li{
+  margin: 10px;
+}

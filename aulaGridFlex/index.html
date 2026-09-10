@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemplo Didático: CSS Grid vs Flexbox</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="main-header">
+    <div class="header-container">
+      <span class="badge">Guia Interativo</span>
+      <h1>CSS Grid vs Flexbox</h1>
+      <p>Entenda visualmente a diferença entre as duas principais ferramentas de Layout do CSS moderno.</p>
+    </div>
+  </header>
+
+  <main class="content-wrapper">
+
+    <!-- SEÇÃO 1: FLEXBOX -->
+    <section class="card-section">
+      <div class="section-title-box">
+        <span class="pill pill-flex">Flexbox</span>
+        <h2>1. Flexbox (Layout Unidimensional - 1D)</h2>
+        <p>O <strong>Flexbox</strong> se destaca no alinhamento de itens ao longo de uma <em>única direção</em> (linha ou coluna). Perfeito para menus, barras de ferramentas e cartões alinhados.</p>
+      </div>
+
+      <!-- Exemplo Flexbox 1: Header / Navbar -->
+      <div class="demo-box">
+        <h3>Exemplo 1.1: Barra de Navegação Header (Linha)</h3>
+        <p class="code-hint">CSS Usado: <code>display: flex; justify-content: space-between; align-items: center;</code></p>
+        
+        <div class="flex-container-nav">
+          <div class="layer flex-logo">🔴 Logo (flex item 1)</div>
+          <div class="layer flex-menu">
+            <span class="sub-item">Inicio</span>
+            <span class="sub-item">Sobre</span>
+            <span class="sub-item">Serviços</span>
+          </div>
+          <div class="layer flex-btn">🔵 Botão Entrar (flex item 3)</div>
+        </div>
+      </div>
+
+      <!-- Exemplo Flexbox 2: Cards Flexíveis -->
+      <div class="demo-box">
+        <h3>Exemplo 1.2: Cards Flexíveis que Quebram Linha (Flex Wrap)</h3>
+        <p class="code-hint">CSS Usado: <code>display: flex; flex-wrap: wrap; gap: 15px;</code></p>
+        
+        <div class="flex-container-cards">
+          <div class="layer card-item color-1">
+            <strong>Card A</strong>
+            <span>flex: 1 1 200px</span>
+          </div>
+          <div class="layer card-item color-2">
+            <strong>Card B</strong>
+            <span>flex: 1 1 200px</span>
+          </div>
+          <div class="layer card-item color-3">
+            <strong>Card C</strong>
+            <span>flex: 1 1 200px</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 2: CSS GRID -->
+    <section class="card-section">
+      <div class="section-title-box">
+        <span class="pill pill-grid">CSS Grid</span>
+        <h2>2. CSS Grid (Layout Bidimensional - 2D)</h2>
+        <p>O <strong>CSS Grid</strong> permite controlar <em>linhas e colunas simultaneamente</em>. É ideal para organizar a estrutura geral da página ou criar grades complexas.</p>
+      </div>
+
+      <!-- Exemplo Grid 1: Layout de Página Completa -->
+      <div class="demo-box">
+        <h3>Exemplo 2.1: Layout Completo de Aplicação (Header, Sidebar, Principal, Footer)</h3>
+        <p class="code-hint">CSS Usado: <code>display: grid; grid-template-areas: "header header" "sidebar main" "footer footer";</code></p>
+        
+        <div class="grid-container-page">
+          <header class="layer grid-area-header">
+            <strong>HEADER (Cabeçalho)</strong>
+            <span>grid-area: header</span>
+          </header>
+          
+          <aside class="layer grid-area-sidebar">
+            <strong>SIDEBAR (Menu Lateral)</strong>
+            <span>grid-area: sidebar</span>
+          </aside>
+          
+          <main class="layer grid-area-main">
+            <strong>MAIN CONTENT (Conteúdo Principal)</strong>
+            <span>grid-area: main</span>
+            <p>O Grid organiza com precisão as regiões bidimensionais da tela.</p>
+          </main>
+          
+          <footer class="layer grid-area-footer">
+            <strong>FOOTER (Rodapé)</strong>
+            <span>grid-area: footer</span>
+          </footer>
+        </div>
+      </div>
+
+      <!-- Exemplo Grid 2: Galeria Responsiva -->
+      <div class="demo-box">
+        <h3>Exemplo 2.2: Grid Automático e Responsivo (Auto-Fit)</h3>
+        <p class="code-hint">CSS Usado: <code>display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));</code></p>
+        
+        <div class="grid-container-gallery">
+          <div class="layer grid-item g-color-1">Item 1</div>
+          <div class="layer grid-item g-color-2">Item 2</div>
+          <div class="layer grid-item g-color-3">Item 3</div>
+          <div class="layer grid-item g-color-4">Item 4</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 3: COMBINANDO FLEXBOX E GRID -->
+    <section class="card-section">
+      <div class="section-title-box">
+        <span class="pill pill-combo">Boas Práticas</span>
+        <h2>3. Quando usar qual? (Resumo Didático)</h2>
+      </div>
+
+      <div class="comparison-grid">
+        <div class="comparison-card flex-theme">
+          <h3>⚡ Use FLEXBOX para:</h3>
+          <ul>
+            <li>Alinhar elementos em 1 única direção (horizontal ou vertical).</li>
+            <li>Distribuir espaço entre botões, itens de menu e ícones.</li>
+            <li>Centralizar um elemento vertical e horizontalmente com facilidade.</li>
+            <li>Componentes pequenos e médios da interface.</li>
+          </ul>
+        </div>
+
+        <div class="comparison-card grid-theme">
+          <h3>📐 Use CSS GRID para:</h3>
+          <ul>
+            <li>Criar a estrutura geral da página (Macro Layout).</li>
+            <li>Organizar elementos em 2 direções (Linhas E Colunas ao mesmo tempo).</li>
+            <li>Superposição (overlap) de elementos.</li>
+            <li>Galerias de fotos e dashboards com alinhamento estrito.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="page-footer">
+    <p>Desenvolvido para estudo prático de HTML e CSS • <strong>Aula de Desenvolviento Web</strong></p>
+  </footer>
+
+</body>
+</html>
