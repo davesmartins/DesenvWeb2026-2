@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercício: Lista de Tarefas com Carregamento Simulado</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="main-header">
+    <div class="header-container">
+      <span class="badge">Aula 02 · JavaScript</span>
+      <h1>Lista de Tarefas com Carregamento Simulado</h1>
+      <p>Exercício para reforçar DOM, eventos e a diferença entre código síncrono e assíncrono.</p>
+    </div>
+  </header>
+
+  <main class="content-wrapper">
+
+    <a class="voltar-link" href="index.html">← Voltar para a aula</a>
+
+    <!-- ENUNCIADO -->
+    <section class="card-section">
+      <div class="section-title-box">
+        <span class="pill pill-exercicio">Exercício</span>
+        <h2>O que você vai construir</h2>
+        <p>Uma lista de tarefas onde, ao adicionar um item, a página mostra "Salvando..." e só depois de um tempo o item aparece de verdade — simulando uma chamada de rede real, sem precisar de nenhuma API.</p>
+      </div>
+
+      <ol class="exercicio-list">
+        <li><strong>Evento:</strong> capture o clique no botão "Adicionar" <em>e</em> a tecla Enter no campo de texto.</li>
+        <li><strong>Assíncrono:</strong> ao adicionar, mostre "Salvando..." na tela e use <code>setTimeout</code> (1500ms) para simular a espera de um servidor.</li>
+        <li><strong>DOM:</strong> só depois que o <code>setTimeout</code> disparar, crie o item da lista com <code>createElement</code> / <code>appendChild</code>.</li>
+        <li><strong>Evento (de novo):</strong> cada item da lista deve ter um botão "Remover" que apaga aquele item específico ao ser clicado.</li>
+        <li><strong>Observação no console:</strong> adicione três <code>console.log</code> na função — um logo no início, um dentro do <code>setTimeout</code>, e um logo depois de chamar o <code>setTimeout</code> (mas fora dele). Veja em que ordem eles aparecem e pense no porquê.</li>
+      </ol>
+    </section>
+
+    <!-- APLICAÇÃO -->
+    <section class="card-section">
+      <div class="section-title-box">
+        <span class="pill pill-js">Sua lista</span>
+        <h2>Área de teste</h2>
+        <p>O HTML e o CSS já estão prontos. Complete os <code>TODO</code>s em <code>exercicio-lista-tarefas.js</code>.</p>
+      </div>
+
+      <div class="todo-app">
+        <div class="todo-input-row">
+          <input type="text" id="input-tarefa" placeholder="Digite uma tarefa e pressione Enter">
+          <button id="btn-adicionar">Adicionar</button>
+        </div>
+        <p id="status-salvando" class="status-msg"></p>
+        <ul id="lista-tarefas" class="todo-list"></ul>
+      </div>
+    </section>
+
+    <!-- DICAS -->
+    <section class="card-section">
+      <div class="section-title-box">
+        <span class="pill pill-dom">Dicas</span>
+        <h2>Se travar, olhe aqui</h2>
+      </div>
+
+      <div class="demo-box">
+        <h3>Criando um elemento e colocando na página</h3>
+        <p class="code-hint">
+<code>const li = document.createElement("li");<br>
+li.textContent = "minha tarefa";<br>
+listaTarefas.appendChild(li);</code>
+        </p>
+      </div>
+
+      <div class="demo-box">
+        <h3>Removendo um elemento específico</h3>
+        <p class="code-hint">
+<code>botaoRemover.addEventListener("click", () => {<br>
+&nbsp;&nbsp;li.remove();<br>
+});</code>
+        </p>
+      </div>
+
+      <div class="demo-box">
+        <h3>Detectando a tecla Enter</h3>
+        <p class="code-hint">
+<code>input.addEventListener("keydown", (evento) => {<br>
+&nbsp;&nbsp;if (evento.key === "Enter") {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// adicionar tarefa aqui<br>
+&nbsp;&nbsp;}<br>
+});</code>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="page-footer">
+    <p>DWS · Aula 02 — DOM, Eventos e Síncrono vs Assíncrono</p>
+  </footer>
+
+  <script src="exercicio-lista-tarefas.js"></script>
+</body>
+</html>

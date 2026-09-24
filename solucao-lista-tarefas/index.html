@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solução: Lista de Tarefas com Carregamento Simulado</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="main-header">
+    <div class="header-container">
+      <h1>Lista de Tarefas</h1>
+    </div>
+  </header>
+
+  <main class="content-wrapper">
+
+    <section class="card-section">
+
+      <div class="todo-app">
+        <div class="todo-input-row">
+          <input type="text" id="input-tarefa" placeholder="Digite uma tarefa e pressione Enter">
+          <button id="btn-adicionar">Adicionar</button>
+        </div>
+        <p id="status-salvando" class="status-msg"></p>
+
+        <ul id="lista-tarefas" class="todo-list">
+        </ul>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="page-footer">
+    <p>DWS · Aula 02 — DOM, Eventos e Síncrono vs Assíncrono</p>
+  </footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

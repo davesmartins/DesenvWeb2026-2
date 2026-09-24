@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Primeira Aula de JavaScript: Para que serve o JS e o que é o DOM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="main-header">
+    <div class="header-container">
+      <span class="badge">Aula 01 · JavaScript</span>
+      <h1>Para que serve o JavaScript?</h1>
+      <p>Você já sabe estruturar uma página com HTML e estilizar com CSS. Hoje vamos dar vida e comportamento a ela.</p>
+    </div>
+  </header>
+
+  <main class="content-wrapper">
+
+    <!-- SEÇÃO 1: DEMO IMEDIATA -->
+    <section class="card-section">
+      <div class="section-title-box">
+        <span class="pill pill-js">Demonstração</span>
+        <h2>1. Veja o JS em ação antes de qualquer teoria</h2>
+        <p>Clique no botão abaixo. O que aconteceu foi 100% feito por JavaScript, mexendo em algo que já existia em HTML/CSS.</p>
+      </div>
+
+      <div class="demo-box demo-hero">
+        <h3 id="titulo-demo">Esse título está paradinho aqui...</h3>
+        <button id="botao-demo">Clique para o JS agir</button>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 2: O PAPEL DO JS -->
+    <section class="card-section">
+      <div class="section-title-box">
+        <span class="pill pill-js">Conceito</span>
+        <h2>2. HTML, CSS e JS: cada um com seu papel</h2>
+        <p>É a mesma casa, três trabalhos diferentes.</p>
+      </div>
+
+      <div class="trio-grid">
+        <div class="trio-card trio-html">
+          <h4>🧱 HTML</h4>
+          <p>A <strong>estrutura</strong>. Define o que existe na página: títulos, parágrafos, botões, imagens.</p>
+        </div>
+        <div class="trio-card trio-css">
+          <h4>🎨 CSS</h4>
+          <p>A <strong>aparência</strong>. Define cores, espaçamentos, fontes e o layout (Flexbox, Grid...).</p>
+        </div>
+        <div class="trio-card trio-js">
+          <h4>⚡ JavaScript</h4>
+          <p>O <strong>comportamento</strong>. Reage a cliques, muda o conteúdo, valida formulários, busca dados.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 3: O QUE É O DOM -->
+    <section class="card-section">
+      <div class="section-title-box">
+        <span class="pill pill-dom">DOM</span>
+        <h2>3. Como o JS "enxerga" a página: o DOM</h2>
+        <p>Quando o navegador lê seu HTML, ele monta uma <strong>árvore de elementos</strong> na memória chamada <strong>DOM</strong> (Document Object Model). O JavaScript não edita o arquivo <code>.html</code> — ele conversa com essa árvore, e a tela é atualizada na hora.</p>
+      </div>
+
+      <div class="demo-box">
+        <h3>Exemplo: este HTML...</h3>
+        <p class="code-hint">
+<code>&lt;body&gt;<br>
+&nbsp;&nbsp;&lt;h1 id="titulo"&gt;Minha Página&lt;/h1&gt;<br>
+&nbsp;&nbsp;&lt;p class="texto"&gt;Um parágrafo&lt;/p&gt;<br>
+&nbsp;&nbsp;&lt;button&gt;Clique aqui&lt;/button&gt;<br>
+&lt;/body&gt;</code>
+        </p>
+        <h3>...vira esta árvore (o DOM):</h3>
+        <div class="dom-tree">
+          <ul>
+            <li><span class="dom-node">body</span>
+              <ul>
+                <li><span class="dom-node">h1</span> <span class="dom-node attr">id="titulo"</span></li>
+                <li><span class="dom-node">p</span> <span class="dom-node attr">class="texto"</span></li>
+                <li><span class="dom-node">button</span></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="demo-box">
+        <h3>O JS pega um "nó" dessa árvore e mexe nele</h3>
+        <p class="code-hint">CSS Usado: <code>document.querySelector("#titulo")</code> encontra o elemento; depois mudamos alguma propriedade dele, como <code>.textContent</code> ou <code>.style.color</code>.</p>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 4: PLAYGROUND -->
+    <section class="card-section">
+      <div class="section-title-box">
+        <span class="pill pill-exercicio">Tente você mesmo</span>
+        <h2>4. Selecionar elementos e reagir a cliques</h2>
+        <p>As duas funções mais usadas no dia a dia: <code>document.querySelector()</code> para achar um elemento no DOM, e <code>addEventListener()</code> para reagir a um evento (como um clique).</p>
+      </div>
+
+      <div class="playground">
+        <div class="playground-target">
+          <div id="caixa-alvo">Eu sou um elemento do DOM</div>
+        </div>
+        <div class="playground-buttons">
+          <button id="btn-azul">Ficar azul</button>
+          <button id="btn-verde">Ficar verde</button>
+          <button id="btn-texto">Mudar o texto</button>
+          <button id="btn-reset">Resetar</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 5: EXERCÍCIOS -->
+    <section class="card-section">
+      <div class="section-title-box">
+        <span class="pill pill-exercicio">Prática</span>
+        <h2>5. Exercícios rápidos</h2>
+        <p>Abra o Console do navegador (F12 → aba "Console") ou edite o <code>script.js</code> deste arquivo.</p>
+      </div>
+
+      <ol class="exercicio-list">
+        <li>Use <code>document.querySelector("#titulo-demo")</code> no console e veja o elemento retornado.</li>
+        <li>Mude o texto do título da Seção 1 usando <code>.textContent = "novo texto"</code>.</li>
+        <li>Adicione um novo botão no HTML e faça ele, ao ser clicado, mudar a cor de fundo do <code>body</code>.</li>
+        <li><strong>Desafio:</strong> crie um botão "contador" que soma +1 no seu próprio texto a cada clique.</li>
+      </ol>
+    </section>
+
+  </main>
+
+  <footer class="page-footer">
+    <p>DWS · Aula 01 — Introdução ao JavaScript e ao DOM</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
