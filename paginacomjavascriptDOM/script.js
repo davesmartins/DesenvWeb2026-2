@@ -18,7 +18,8 @@ async function buscarDados() {
         statusText.textContent = 'Status: Buscando dados na API...';
 
         // Requisição assíncrona com fetch (API pública de testes)
-        const resposta = await fetch('origem-dos-dados.txt');
+        // const resposta = await fetch('origem-dos-dados.txt');
+        const resposta = await fetch('https://jsonplaceholder.typicode.com/users');
         const usuarios = await resposta.json();
         console.log ('Resposta da requisição:', usuarios);
         console.log ('terminou:');
