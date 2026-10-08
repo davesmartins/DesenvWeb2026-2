@@ -1,0 +1,109 @@
+ORIGEM DOS DADOS - Módulo 05: JavaScript no Navegador (DOM, Eventos e Assincronismo)
+========================================================================
+
+De onde vêm os dados usados neste exemplo?
+-------------------------------------------
+Os dados carregados na página vêm de uma API pública e gratuita chamada
+JSONPlaceholder (https://jsonplaceholder.typicode.com/users), amplamente
+usada para fins didáticos e testes de front-end.
+
+No script.js, a chamada é feita assim:
+
+    const resposta = await fetch('https://jsonplaceholder.typicode.com/users');
+    const usuarios = await resposta.json();
+
+Características importantes dessa API:
+
+- É um serviço "fake"/mock: não existe um banco de dados real por trás
+  dela. Os mesmos 10 usuários fictícios são sempre retornados (um JSON
+  estático servido de forma dinâmica), então o resultado é sempre igual,
+  independentemente de quando ou de onde a chamada é feita.
+
+- O endpoint /users retorna um array de 10 objetos, cada um com campos
+  como id, name, username, email, address (aninhado), phone, website e
+  company (aninhado).
+
+- Não exige autenticação: não é preciso nenhuma chave de API, o que a
+  torna ideal para exemplos de sala de aula, já que os alunos não
+  precisam se cadastrar em nada para o fetch funcionar.
+
+- É só leitura de verdade: aceita POST, PUT, DELETE etc., mas essas
+  operações são apenas simuladas. A API responde como se tivesse salvo
+  os dados, mas nada é persistido de fato.
+
+No código do projeto, apenas os 5 primeiros usuários são exibidos
+(usuarios.slice(0, 5)), e somente o campo "name" de cada um é usado
+para popular os itens <li> da lista.
+
+
+E se o programador quisesse buscar de um banco de dados de verdade?
+---------------------------------------------------------------------
+O ponto central para entender aqui é que, do lado do JavaScript que roda
+no navegador (front-end), NADA muda na lógica de fetch/async/await. O
+navegador nunca "conversa" diretamente com um banco de dados - ele
+sempre conversa com uma URL (uma API). O que muda é o que existe por
+trás dessa URL.
+
+Ou seja, para usar dados reais de um banco de dados, o fluxo passa a
+ter uma peça a mais:
+
+    [Navegador / script.js]  --fetch-->  [API própria (back-end)]  --consulta-->  [Banco de dados]
+
+Hoje, o fetch aponta para uma API de terceiros (JSONPlaceholder). Para
+usar um banco de dados real, o programador precisaria:
+
+1. Criar um back-end (por exemplo, com Node.js + Express, PHP, Python +
+   Flask/Django etc.) que se conecte ao banco de dados (MySQL,
+   PostgreSQL, MongoDB etc.).
+
+2. Nesse back-end, criar uma rota/endpoint (ex: /api/usuarios) que
+   execute uma consulta SQL (ou equivalente) no banco e devolva o
+   resultado em formato JSON - exatamente o mesmo formato que o
+   JSONPlaceholder já devolve hoje.
+
+3. No script.js, trocar apenas a URL do fetch, apontando para essa nova
+   API própria em vez da API de terceiros. O restante do código (o
+   await, o .json(), o forEach que monta os <li>) continua igual, pois
+   já está preparado para receber um array de objetos JSON.
+
+Exemplo de como ficaria (lado do back-end, em Node.js + Express,
+consultando uma tabela "usuarios" em um banco MySQL):
+
+    // servidor.js (back-end - roda no servidor, não no navegador)
+    const express = require('express');
+    const mysql = require('mysql2/promise');
+    const app = express();
+
+    app.get('/api/usuarios', async (req, res) => {
+        const conexao = await mysql.createConnection({
+            host: 'localhost',
+            user: 'root',
+            password: 'senha',
+            database: 'escola'
+        });
+
+        const [linhas] = await conexao.query(
+            'SELECT id, name, email FROM usuarios LIMIT 5'
+        );
+
+        res.json(linhas); // devolve os dados do banco em JSON
+    });
+
+    app.listen(3000, () => console.log('API rodando na porta 3000'));
+
+E no script.js do front-end, a única mudança necessária seria a URL do
+fetch:
+
+    // Antes (API pública de testes):
+    const resposta = await fetch('https://jsonplaceholder.typicode.com/users');
+
+    // Depois (API própria, ligada ao banco de dados real):
+    const resposta = await fetch('http://localhost:3000/api/usuarios');
+
+Note que o restante do script.js (tratamento de erro com try/catch,
+manipulação do DOM, delegação de eventos) permanece exatamente igual.
+Essa é uma das grandes vantagens de trabalhar com fetch e JSON: a
+lógica do front-end fica desacoplada da origem dos dados. Trocar de uma
+API de testes para um banco de dados real é, na prática, apenas trocar
+a URL - desde que a nova API "fale o mesmo idioma" (JSON) que o
+front-end já espera.
