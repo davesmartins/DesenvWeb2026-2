@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notas Rápidas</title>
+  <meta name="description" content="Um app de notas simples, rápido e que funciona offline.">
+  <meta name="theme-color" content="#0f172a">
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="main-header">
+    <div class="header-container">
+      <span class="badge" id="status-badge">🟢 Online</span>
+      <h1>Notas Rápidas</h1>
+      <p>Anote qualquer coisa. Suas notas ficam salvas no aparelho e continuam disponíveis mesmo sem internet.</p>
+      <button id="btn-instalar" class="btn-instalar" hidden>⬇️ Instalar app</button>
+    </div>
+  </header>
+
+  <main class="content-wrapper">
+
+    <section class="card-section">
+      <form id="form-nota" class="nota-form">
+        <input type="text" id="input-nota" placeholder="Escreva uma nota e pressione Enter..." autocomplete="off">
+        <button type="submit">Adicionar</button>
+      </form>
+    </section>
+
+    <section class="card-section">
+      <div class="section-title-box">
+        <h2>Suas notas</h2>
+        <p id="contador-notas">Nenhuma nota ainda.</p>
+      </div>
+      <ul id="lista-notas" class="notas-list"></ul>
+    </section>
+
+    <section class="card-section info-section">
+      <div class="section-title-box">
+        <span class="pill">PWA</span>
+        <h2>Por que este site funciona como um app?</h2>
+        <p>Este site é um <strong>Progressive Web App</strong>: tem um manifesto de instalação e um Service Worker que guarda os arquivos em cache. Você pode instalá-lo na tela inicial e ele continua funcionando offline.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="page-footer">
+    <p>DWS · Exemplo de PWA — Notas Rápidas</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
