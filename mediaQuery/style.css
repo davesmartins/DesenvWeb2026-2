@@ -1,0 +1,339 @@
+/* ==========================================================================
+   CONFIGURAÇÕES GERAIS
+   ========================================================================== */
+:root {
+  --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+  --bg-main: #0f172a;
+  --bg-card: #1e293b;
+  --bg-input: #0b1220;
+
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  --color-accent: #f97316;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  line-height: 1.6;
+  padding-bottom: 50px;
+}
+
+/* ==========================================================================
+   INDICADOR DE BREAKPOINT (fixo no canto, só para fins didáticos)
+   ========================================================================== */
+.indicador-breakpoint {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  background-color: var(--color-accent);
+  color: #1e1b0e;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  z-index: 999;
+}
+
+/* ==========================================================================
+   NAVBAR / MENU RESPONSIVO
+   ========================================================================== */
+.topo {
+  background-color: #1e1b4b;
+  border-bottom: 1px solid #334155;
+}
+
+.navbar {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  position: relative;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.btn-menu {
+  display: block;
+  background: none;
+  border: 1px solid #475569;
+  color: var(--text-primary);
+  font-size: 1.3rem;
+  border-radius: 8px;
+  padding: 4px 12px;
+  cursor: pointer;
+}
+
+/* Mobile: menu some e fica escondido até o botão ser clicado */
+.menu-links {
+  list-style: none;
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  position: absolute;
+  top: 100%;
+  right: 20px;
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: 10px;
+  width: 180px;
+}
+
+.menu-links.aberto {
+  display: flex;
+}
+
+.menu-links li a {
+  display: block;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 6px;
+}
+
+.menu-links li a:hover {
+  background-color: #334155;
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   CONTAINER DE CONTEÚDO
+   ========================================================================== */
+.content-wrapper {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.card-section {
+  background-color: var(--bg-card);
+  border: 1px solid #334155;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.intro-section h1 {
+  font-size: 2rem;
+  margin: 10px 0;
+  background: linear-gradient(to right, #fb923c, #facc15);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.intro-section p {
+  color: var(--text-secondary);
+}
+
+.section-title-box {
+  margin-bottom: 25px;
+}
+
+.section-title-box h2 {
+  font-size: 1.5rem;
+  margin-top: 10px;
+  margin-bottom: 6px;
+}
+
+.section-title-box p {
+  color: var(--text-secondary);
+}
+
+.pill {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: rgba(249, 115, 22, 0.15);
+  color: var(--color-accent);
+}
+
+.pill-info {
+  background-color: rgba(56, 189, 248, 0.2);
+  color: #38bdf8;
+}
+
+/* ==========================================================================
+   CARDS DE BREAKPOINTS (explicação)
+   ========================================================================== */
+.breakpoints-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+.bp-card {
+  border-radius: 10px;
+  padding: 16px;
+  border: 1px solid #334155;
+}
+
+.bp-card h3 {
+  margin-bottom: 4px;
+}
+
+.bp-range {
+  font-family: monospace;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.bp-card p:last-child {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.bp-mobile { border-left: 4px solid #38bdf8; }
+.bp-tablet { border-left: 4px solid #a855f7; }
+.bp-desktop { border-left: 4px solid #10b981; }
+.bp-wide { border-left: 4px solid #f97316; }
+
+/* ==========================================================================
+   GRID DE PRODUTOS (CARDS RESPONSIVOS)
+   ========================================================================== */
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Mobile: 1 coluna */
+  gap: 16px;
+}
+
+.produto-card {
+  background-color: var(--bg-input);
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 18px;
+  text-align: center;
+  transition: transform 0.15s ease;
+}
+
+.produto-card:hover {
+  transform: translateY(-3px);
+}
+
+.produto-imagem {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 12px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+}
+
+.cor-1 { background-color: #3b82f6; }
+.cor-2 { background-color: #a855f7; }
+.cor-3 { background-color: #10b981; }
+.cor-4 { background-color: #f97316; }
+.cor-5 { background-color: #06b6d4; }
+.cor-6 { background-color: #eab308; }
+.cor-7 { background-color: #ec4899; }
+.cor-8 { background-color: #84cc16; }
+
+.produto-card h3 {
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.produto-card p {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+}
+
+.preco {
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+/* ==========================================================================
+   EXERCÍCIOS
+   ========================================================================== */
+.exercicio-list {
+  padding-left: 20px;
+  color: var(--text-secondary);
+}
+
+.exercicio-list li {
+  margin-bottom: 10px;
+}
+
+/* ==========================================================================
+   RODAPÉ
+   ========================================================================== */
+.page-footer {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-top: 40px;
+}
+
+/* ==========================================================================
+   MEDIA QUERIES (mobile-first: regras vão "ligando" conforme a tela cresce)
+   ========================================================================== */
+
+/* TABLET: a partir de 600px */
+@media (min-width: 600px) {
+  .breakpoints-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* DESKTOP: a partir de 900px */
+@media (min-width: 900px) {
+  .btn-menu {
+    display: none;
+  }
+
+  .menu-links {
+    display: flex;
+    flex-direction: row;
+    position: static;
+    background: none;
+    border: none;
+    padding: 0;
+    width: auto;
+    gap: 10px;
+  }
+
+  .breakpoints-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* TELA LARGA: a partir de 1200px */
+@media (min-width: 1200px) {
+  .cards-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

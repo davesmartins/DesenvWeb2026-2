@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media Queries: Menu e Cards Responsivos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Indicador do breakpoint atual: ajuda o aluno a ver qual regra está ativa -->
+  <div id="indicador-breakpoint" class="indicador-breakpoint">📱 Mobile (< 600px)</div>
+
+  <header class="topo">
+    <nav class="navbar">
+      <span class="logo">🧩 ResponsivoShop</span>
+
+      <button id="btn-menu" class="btn-menu" aria-label="Abrir menu">☰</button>
+
+      <ul id="menu-links" class="menu-links">
+        <li><a href="#">Início</a></li>
+        <li><a href="#">Produtos</a></li>
+        <li><a href="#">Sobre</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="content-wrapper">
+
+    <section class="card-section intro-section">
+      <span class="pill">Design Responsivo</span>
+      <h1>Media Queries na prática</h1>
+      <p>Redimensione a janela do navegador (ou abra o DevTools e ative o modo de dispositivo móvel) e observe três coisas mudando: o <strong>menu</strong> no topo, o <strong>número de colunas</strong> dos cards abaixo, e o <strong>indicador amarelo</strong> no canto da tela.</p>
+    </section>
+
+    <section class="card-section">
+      <div class="section-title-box">
+        <span class="pill pill-info">Breakpoints usados</span>
+        <h2>Como este exemplo está organizado</h2>
+      </div>
+
+      <div class="breakpoints-grid">
+        <div class="bp-card bp-mobile">
+          <h3>📱 Mobile</h3>
+          <p class="bp-range">até 599px</p>
+          <p>Menu escondido atrás do botão ☰. Cards em <strong>1 coluna</strong>.</p>
+        </div>
+        <div class="bp-card bp-tablet">
+          <h3>📟 Tablet</h3>
+          <p class="bp-range">de 600px a 899px</p>
+          <p>Menu ainda com ☰. Cards em <strong>2 colunas</strong>.</p>
+        </div>
+        <div class="bp-card bp-desktop">
+          <h3>🖥️ Desktop</h3>
+          <p class="bp-range">de 900px a 1199px</p>
+          <p>Menu aparece na horizontal. Cards em <strong>3 colunas</strong>.</p>
+        </div>
+        <div class="bp-card bp-wide">
+          <h3>🖥️✨ Tela larga</h3>
+          <p class="bp-range">a partir de 1200px</p>
+          <p>Mesmo menu horizontal. Cards em <strong>4 colunas</strong>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card-section">
+      <div class="section-title-box">
+        <span class="pill pill-info">Cards</span>
+        <h2>Grid responsivo</h2>
+        <p>O número de colunas do <code>grid-template-columns</code> muda conforme a largura da tela, usando <code>@media (min-width: ...)</code>.</p>
+      </div>
+
+      <div class="cards-grid">
+        <article class="produto-card">
+          <div class="produto-imagem cor-1">👟</div>
+          <h3>Tênis Urbano</h3>
+          <p>Confortável para o dia a dia.</p>
+          <span class="preco">R$ 249,90</span>
+        </article>
+        <article class="produto-card">
+          <div class="produto-imagem cor-2">🎧</div>
+          <h3>Fone Bluetooth</h3>
+          <p>Som com cancelamento de ruído.</p>
+          <span class="preco">R$ 189,90</span>
+        </article>
+        <article class="produto-card">
+          <div class="produto-imagem cor-3">⌚</div>
+          <h3>Smartwatch</h3>
+          <p>Monitora treino e sono.</p>
+          <span class="preco">R$ 399,90</span>
+        </article>
+        <article class="produto-card">
+          <div class="produto-imagem cor-4">🎒</div>
+          <h3>Mochila Notebook</h3>
+          <p>Compartimento acolchoado.</p>
+          <span class="preco">R$ 159,90</span>
+        </article>
+        <article class="produto-card">
+          <div class="produto-imagem cor-5">🧴</div>
+          <h3>Garrafa Térmica</h3>
+          <p>Mantém a temperatura por 12h.</p>
+          <span class="preco">R$ 79,90</span>
+        </article>
+        <article class="produto-card">
+          <div class="produto-imagem cor-6">💡</div>
+          <h3>Luminária de Mesa</h3>
+          <p>Luz ajustável em 3 tons.</p>
+          <span class="preco">R$ 119,90</span>
+        </article>
+        <article class="produto-card">
+          <div class="produto-imagem cor-7">🪑</div>
+          <h3>Cadeira Gamer</h3>
+          <p>Apoio lombar ajustável.</p>
+          <span class="preco">R$ 899,90</span>
+        </article>
+        <article class="produto-card">
+          <div class="produto-imagem cor-8">📷</div>
+          <h3>Câmera Instantânea</h3>
+          <p>Fotos impressas na hora.</p>
+          <span class="preco">R$ 349,90</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="card-section">
+      <div class="section-title-box">
+        <span class="pill pill-info">Exercícios</span>
+        <h2>Para tentar</h2>
+      </div>
+      <ol class="exercicio-list">
+        <li>Mude o breakpoint do tablet de <code>600px</code> para <code>700px</code> e veja o efeito.</li>
+        <li>Faça os cards virarem <strong>5 colunas</strong> em telas acima de <code>1500px</code>.</li>
+        <li>Troque a condição do menu mobile de <code>max-width</code> para usar <code>orientation: portrait</code> e compare o resultado.</li>
+      </ol>
+    </section>
+
+  </main>
+
+  <footer class="page-footer">
+    <p>DWS · Módulo 07 — Design Responsivo e Media Queries</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
