@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Biblioteca de componentes - MUI</title>
+
+  <!-- Fonte Roboto, usada pelo Material Design -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+
+  <!--
+    MUI (Material UI) é feito para React. Sem Node, usamos tudo por CDN:
+      1. React e ReactDOM (builds UMD, expõem as variáveis globais React e ReactDOM)
+      2. MUI (build UMD, expõe a variável global MaterialUI)
+      3. Babel standalone, que converte o JSX da tag <script type="text/babel"> no navegador
+    Isso é ótimo para estudar e prototipar. Em produção o ideal é um build (Vite etc.).
+  -->
+  <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/@mui/material@5.15.20/umd/material-ui.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
+
+  <style>
+    body { margin: 0; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    // Componentes do MUI vêm da variável global MaterialUI
+    const {
+      ThemeProvider, createTheme, CssBaseline,
+      AppBar, Toolbar, Typography, Button, Box, Container, Alert,
+      Card, CardContent, CardActions, Chip, Grid, Stack,
+      TextField, MenuItem, FormControlLabel, Checkbox,
+      Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions,
+    } = MaterialUI;
+
+    // Tema: troca as cores e a tipografia de todos os componentes de uma vez
+    const tema = createTheme({
+      palette: {
+        primary: { main: '#c8553d' },
+        secondary: { main: '#1f3a2e' },
+        background: { default: '#f7f3ec' },
+      },
+      shape: { borderRadius: 10 },
+    });
+
+    const pratos = [
+      { id: 'risoto',   nome: 'Risoto de abóbora',      desc: 'Arroz arbóreo, abóbora assada e queijo parmesão.', preco: 'R$ 18,00', tag: 'Vegetariano', cor: 'success' },
+      { id: 'feijoada', nome: 'Feijoada completa',      desc: 'Feijão preto, arroz, couve, farofa e laranja.',    preco: 'R$ 24,00', tag: 'Clássico',    cor: 'default' },
+      { id: 'salada',   nome: 'Salada de grão-de-bico', desc: 'Grão-de-bico, tomate, pepino e molho de limão.',   preco: 'R$ 15,00', tag: 'Leve',        cor: 'warning' },
+    ];
+
+    function Cantina() {
+      // useState: guarda os dados do formulário e se o diálogo está aberto
+      const [nome, setNome] = React.useState('');
+      const [prato, setPrato] = React.useState('risoto');
+      const [semSal, setSemSal] = React.useState(false);
+      const [aberto, setAberto] = React.useState(false);
+
+      function enviar(e) {
+        e.preventDefault();
+        setAberto(true);
+      }
+
+      return (
+        <ThemeProvider theme={tema}>
+          <CssBaseline />
+
+          {/* AppBar: barra superior */}
+          <AppBar position="static" color="secondary" elevation={0}>
+            <Toolbar>
+              <Typography variant="h6" sx={{ flexGrow: 1, fontWeight: 700 }}>Cantina da Turma</Typography>
+              <Button color="inherit" href="#cardapio">Cardápio</Button>
+              <Button color="inherit" href="#pedido">Fazer pedido</Button>
+              <Button color="inherit" href="bootstrap.html">Ver versão com classes</Button>
+            </Toolbar>
+          </AppBar>
+
+          {/* Hero: Box com a prop "sx" aceita CSS direto, com acesso ao tema */}
+          <Box sx={{ bgcolor: '#1f3a2e', color: '#f7f3ec', py: 8 }}>
+            <Container>
+              <Typography variant="h2" component="h1" sx={{ fontWeight: 700, mb: 2 }}>
+                Almoço bom, fila curta.
+              </Typography>
+              <Typography variant="h6" sx={{ maxWidth: 560, mb: 3, fontWeight: 400 }}>
+                Escolha o prato, reserve o horário e retire sem esperar.
+              </Typography>
+              <Button variant="contained" size="large" href="#pedido">Fazer pedido</Button>
+            </Container>
+          </Box>
+
+          <Container sx={{ my: 5 }}>
+            <Alert severity="warning">
+              Hoje a cantina fecha às 14h. Pedidos feitos depois disso valem para amanhã.
+            </Alert>
+
+            <Typography id="cardapio" variant="h4" component="h2" sx={{ mt: 5, mb: 3 }}>
+              Cardápio de hoje
+            </Typography>
+
+            {/* Grid: xs=12 (celular) e md=4 (3 colunas no desktop) */}
+            <Grid container spacing={3}>
+              {pratos.map((p) => (
+                <Grid item xs={12} md={4} key={p.id}>
+                  <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+                    <CardContent sx={{ flexGrow: 1 }}>
+                      <Chip label={p.tag} color={p.cor} size="small" sx={{ mb: 1 }} />
+                      <Typography variant="h6" component="h3">{p.nome}</Typography>
+                      <Typography variant="body2" color="text.secondary">{p.desc}</Typography>
+                    </CardContent>
+                    <CardActions sx={{ justifyContent: 'space-between', px: 2, pb: 2 }}>
+                      <Typography fontWeight={700}>{p.preco}</Typography>
+                      <Button size="small" variant="outlined" color="secondary">Adicionar</Button>
+                    </CardActions>
+                  </Card>
+                </Grid>
+              ))}
+            </Grid>
+
+            <Typography id="pedido" variant="h4" component="h2" sx={{ mt: 6, mb: 3 }}>
+              Fazer pedido
+            </Typography>
+
+            {/* Formulário controlado: o valor de cada campo fica no estado do React */}
+            <Stack component="form" onSubmit={enviar} spacing={2} sx={{ maxWidth: 480 }}>
+              <TextField label="Seu nome" placeholder="Maria Souza" required
+                         value={nome} onChange={(e) => setNome(e.target.value)} />
+              <TextField select label="Prato" value={prato} onChange={(e) => setPrato(e.target.value)}>
+                {pratos.map((p) => <MenuItem key={p.id} value={p.id}>{p.nome}</MenuItem>)}
+              </TextField>
+              <FormControlLabel
+                control={<Checkbox checked={semSal} onChange={(e) => setSemSal(e.target.checked)} />}
+                label="Preparar com pouco sal" />
+              <Box><Button type="submit" variant="contained">Enviar pedido</Button></Box>
+            </Stack>
+          </Container>
+
+          {/* Dialog: aparece quando "aberto" é true */}
+          <Dialog open={aberto} onClose={() => setAberto(false)}>
+            <DialogTitle>Pedido enviado</DialogTitle>
+            <DialogContent>
+              <DialogContentText>
+                {nome}, seu pedido chega à cozinha em instantes. Retire no balcão.
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={() => setAberto(false)} autoFocus>Entendi</Button>
+            </DialogActions>
+          </Dialog>
+
+          <Box component="footer" sx={{ py: 3, textAlign: 'center', color: 'text.secondary', borderTop: 1, borderColor: 'divider' }}>
+            Exemplo de aula: MUI 5 + React carregados por CDN
+          </Box>
+        </ThemeProvider>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<Cantina />);
+  </script>
+</body>
+</html>
