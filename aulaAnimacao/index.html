@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Animations - Exemplos Práticos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-content">
+      <span class="badge">Aula prática</span>
+      <h1>Movimento com CSS</h1>
+      <p>Transições para respostas imediatas. Animações para mostrar mudanças ao longo do tempo.</p>
+    </div>
+    <div class="orbit" aria-hidden="true"><span></span><span></span><span></span></div>
+  </header>
+
+  <main class="content-wrapper">
+    <section class="intro-grid" aria-labelledby="ideia-principal">
+      <div>
+        <p class="eyebrow">IDEIA PRINCIPAL</p>
+        <h2 id="ideia-principal">Uma animação deve explicar alguma coisa.</h2>
+        <p>Ela pode indicar que um botão recebeu o clique, que uma tarefa está sendo carregada ou que um conteúdo acabou de aparecer.</p>
+      </div>
+      <div class="formula" aria-label="Fórmula básica de uma animação CSS">
+        <span>@keyframes</span>
+        <b>+</b>
+        <span>animation</span>
+      </div>
+    </section>
+
+    <section class="lesson-section" aria-labelledby="transicoes">
+      <div class="section-heading">
+        <span class="number">01</span>
+        <div>
+          <h2 id="transicoes">Transition: resposta a uma interação</h2>
+          <p>A transição suaviza a mudança entre o estado normal e o estado de <code>:hover</code> ou <code>:focus-visible</code>.</p>
+        </div>
+      </div>
+
+      <div class="demo-box transition-demo">
+        <div class="demo-copy">
+          <h3>Passe o mouse no cartão</h3>
+          <p>Em telas touch, toque no cartão para enxergar a mudança de estado.</p>
+          <code class="code-line">transition: transform .25s ease, background-color .25s ease;</code>
+        </div>
+        <button class="profile-card" type="button" aria-label="Cartão de exemplo interativo">
+          <span class="card-icon">✦</span>
+          <span class="card-title">Projeto salvo</span>
+          <span class="card-text">O cartão sobe e muda de cor.</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="lesson-section" aria-labelledby="keyframes">
+      <div class="section-heading">
+        <span class="number">02</span>
+        <div>
+          <h2 id="keyframes">@keyframes: uma sequência de estados</h2>
+          <p>Use quando o elemento precisa percorrer mais de um ponto, sem depender da interação da pessoa.</p>
+        </div>
+      </div>
+
+      <div class="demos-grid">
+        <article class="demo-box">
+          <div class="demo-title">
+            <h3>Carregamento</h3>
+            <code>animation: pulse 1s ease-in-out infinite;</code>
+          </div>
+          <div class="loader-stage" aria-label="Exemplo visual de carregamento">
+            <span></span><span></span><span></span>
+          </div>
+        </article>
+
+        <article class="demo-box">
+          <div class="demo-title">
+            <h3>Chamada de atenção</h3>
+            <code>animation: float 1.8s ease-in-out infinite;</code>
+          </div>
+          <div class="float-stage" aria-label="Exemplo visual de elemento flutuando">
+            <div class="message-bubble">Nova mensagem <b>1</b></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="lesson-section" aria-labelledby="controles">
+      <div class="section-heading">
+        <span class="number">03</span>
+        <div>
+          <h2 id="controles">Controle de tempo</h2>
+          <p>Experimente alterar a duração. Valores menores deixam o movimento mais rápido.</p>
+        </div>
+      </div>
+
+      <div class="demo-box controls-demo">
+        <div class="control-panel">
+          <label for="duration">Duração: <output id="duration-value">1.2s</output></label>
+          <input id="duration" type="range" min="0.4" max="3" value="1.2" step="0.2">
+          <button id="toggle-animation" class="control-button" type="button">Pausar animação</button>
+        </div>
+        <div class="track" aria-label="Demonstração da duração de uma animação">
+          <div class="runner"><span>CSS</span></div>
+        </div>
+        <p class="code-line dynamic-code">animation: move <span id="duration-code">1.2s</span> linear infinite alternate;</p>
+      </div>
+    </section>
+
+    <section class="tip-box" aria-labelledby="acessibilidade">
+      <span aria-hidden="true">✓</span>
+      <div>
+        <h2 id="acessibilidade">Cuidado com excesso de movimento</h2>
+        <p>Evite animações longas, rápidas ou que escondam conteúdo. O CSS abaixo respeita a preferência de reduzir movimento configurada no sistema.</p>
+        <code>@media (prefers-reduced-motion: reduce) { ... }</code>
+      </div>
+    </section>
+  </main>
+
+  <footer class="page-footer">Desenvolvimento de Web Sites · CSS: transition, @keyframes e animation</footer>
+  <script src="script.js"></script>
+</body>
+</html>
