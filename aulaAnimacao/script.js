@@ -11,8 +11,8 @@ durationInput.addEventListener('input', () => {
   runner.style.animationDuration = duration;
 });
 
-toggleButton.addEventListener('click', () => {
+function toggleAnimation() {
   const paused = runner.style.animationPlayState === 'paused';
   runner.style.animationPlayState = paused ? 'running' : 'paused';
   toggleButton.textContent = paused ? 'Pausar animação' : 'Retomar animação';
-});
+}

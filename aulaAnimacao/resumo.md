@@ -50,6 +50,9 @@ Use `@keyframes` quando o elemento precisa passar por uma sequência de estados.
 - Os três pontos representam uma área de carregamento com atraso entre os elementos.
 - O balão de mensagem usa `@keyframes` para flutuar.
 - O controle de duração usa JavaScript para atualizar `animation-duration` em tempo real e permite pausar o movimento.
+- A entrada de conteúdo usa atraso e `animation-fill-mode: both` para preservar o estado inicial e o final.
+- A mensagem digitada mostra o uso de `steps()` para criar mudanças em etapas.
+- O skeleton usa um gradiente que se desloca com `background-position` enquanto o conteúdo carrega.
 
 ## Boas práticas
 

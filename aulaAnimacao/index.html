@@ -48,7 +48,7 @@
           <p>Em telas touch, toque no cartão para enxergar a mudança de estado.</p>
           <code class="code-line">transition: transform .25s ease, background-color .25s ease;</code>
         </div>
-        <button class="profile-card" type="button" aria-label="Cartão de exemplo interativo">
+        <button class="profile-card" type="button" aria-label="Cartão de exemplo interativo" aria-pressed="false" onclick="this.classList.toggle('is-active'); this.setAttribute('aria-pressed', this.classList.contains('is-active'))">
           <span class="card-icon">✦</span>
           <span class="card-title">Projeto salvo</span>
           <span class="card-text">O cartão sobe e muda de cor.</span>
@@ -101,12 +101,60 @@
         <div class="control-panel">
           <label for="duration">Duração: <output id="duration-value">1.2s</output></label>
           <input id="duration" type="range" min="0.4" max="3" value="1.2" step="0.2">
-          <button id="toggle-animation" class="control-button" type="button">Pausar animação</button>
+          <button id="toggle-animation" class="control-button" type="button" onclick="toggleAnimation()">Pausar animação</button>
         </div>
         <div class="track" aria-label="Demonstração da duração de uma animação">
           <div class="runner"><span>CSS</span></div>
         </div>
         <p class="code-line dynamic-code">animation: move <span id="duration-code">1.2s</span> linear infinite alternate;</p>
+      </div>
+    </section>
+
+    <section class="lesson-section" aria-labelledby="outros-efeitos">
+      <div class="section-heading">
+        <span class="number">04</span>
+        <div>
+          <h2 id="outros-efeitos">Outros efeitos úteis</h2>
+          <p>Cada efeito abaixo aparece em situações diferentes de uma interface real.</p>
+        </div>
+      </div>
+
+      <div class="effects-grid">
+        <article class="effect-card">
+          <div class="demo-title">
+            <h3>Entrada de conteúdo</h3>
+            <code>animation-fill-mode: both;</code>
+          </div>
+          <div class="effect-stage reveal-stage" aria-label="Exemplo de conteúdo aparecendo">
+            <div class="reveal-item reveal-one"></div>
+            <div class="reveal-item reveal-two"></div>
+            <div class="reveal-item reveal-three"></div>
+          </div>
+          <p>Uma sequência curta deixa clara a ordem em que os itens chegaram.</p>
+        </article>
+
+        <article class="effect-card">
+          <div class="demo-title">
+            <h3>Digitando uma mensagem</h3>
+            <code>steps(18, end)</code>
+          </div>
+          <div class="effect-stage typing-stage" aria-label="Exemplo de texto sendo digitado">
+            <span class="typing-text">Mensagem enviada!</span><span class="cursor" aria-hidden="true"></span>
+          </div>
+          <p><code>steps()</code> cria intervalos marcados, sem o movimento contínuo de <code>ease</code>.</p>
+        </article>
+
+        <article class="effect-card">
+          <div class="demo-title">
+            <h3>Brilho em carregamento</h3>
+            <code>background-position</code>
+          </div>
+          <div class="effect-stage shimmer-stage" aria-label="Exemplo de carregamento do tipo skeleton">
+            <div class="skeleton avatar"></div>
+            <div class="skeleton-lines"><div class="skeleton line-long"></div><div class="skeleton line-short"></div></div>
+          </div>
+          <p>Útil quando o espaço do conteúdo já está reservado enquanto os dados chegam.</p>
+        </article>
       </div>
     </section>
 
