@@ -37,7 +37,7 @@
       <div class="section-heading">
         <span class="number">01</span>
         <div>
-          <h2 id="transicoes">Transition: resposta a uma interação</h2>
+          <h2 id="transicoes">Transition e transform: resposta a uma interação</h2>
           <p>A transição suaviza a mudança entre o estado normal e o estado de <code>:hover</code> ou <code>:focus-visible</code>.</p>
         </div>
       </div>
@@ -53,6 +53,45 @@
           <span class="card-title">Projeto salvo</span>
           <span class="card-text">O cartão sobe e muda de cor.</span>
         </button>
+      </div>
+
+      <div class="transform-gallery" aria-label="Galeria de exemplos da propriedade transform">
+        <article class="transform-example">
+          <div class="transform-stage"><button class="transform-object translate" type="button" aria-pressed="false" onclick="this.classList.toggle('is-active'); this.setAttribute('aria-pressed', this.classList.contains('is-active'))">translate</button></div>
+          <h3>translate()</h3>
+          <p>Move o item nos eixos X e Y.</p>
+          <code>translateY(-12px)</code>
+        </article>
+        <article class="transform-example">
+          <div class="transform-stage"><button class="transform-object scale" type="button" aria-pressed="false" onclick="this.classList.toggle('is-active'); this.setAttribute('aria-pressed', this.classList.contains('is-active'))">scale</button></div>
+          <h3>scale()</h3>
+          <p>Aumenta ou reduz sem mudar o layout.</p>
+          <code>scale(1.12)</code>
+        </article>
+        <article class="transform-example">
+          <div class="transform-stage"><button class="transform-object rotate" type="button" aria-pressed="false" onclick="this.classList.toggle('is-active'); this.setAttribute('aria-pressed', this.classList.contains('is-active'))">rotate</button></div>
+          <h3>rotate()</h3>
+          <p>Gira o elemento ao redor do centro.</p>
+          <code>rotate(12deg)</code>
+        </article>
+        <article class="transform-example">
+          <div class="transform-stage"><button class="transform-object skew" type="button" aria-pressed="false" onclick="this.classList.toggle('is-active'); this.setAttribute('aria-pressed', this.classList.contains('is-active'))">skew</button></div>
+          <h3>skew()</h3>
+          <p>Inclina o elemento em um eixo.</p>
+          <code>skewX(-10deg)</code>
+        </article>
+        <article class="transform-example">
+          <div class="transform-stage"><button class="transform-object combo" type="button" aria-pressed="false" onclick="this.classList.toggle('is-active'); this.setAttribute('aria-pressed', this.classList.contains('is-active'))">combo</button></div>
+          <h3>Combinação</h3>
+          <p>Mais de uma transformação no mesmo efeito.</p>
+          <code>translateY(-8px) rotate(-3deg)</code>
+        </article>
+        <article class="transform-example">
+          <div class="transform-stage"><button class="transform-object origin" type="button" aria-pressed="false" onclick="this.classList.toggle('is-active'); this.setAttribute('aria-pressed', this.classList.contains('is-active'))">origem</button></div>
+          <h3>transform-origin</h3>
+          <p>Muda o ponto usado para girar.</p>
+          <code>transform-origin: left;</code>
+        </article>
       </div>
     </section>
 

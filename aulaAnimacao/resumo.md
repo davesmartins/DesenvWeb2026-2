@@ -18,6 +18,21 @@ Use `transition` quando já existe uma mudança de estado, como `:hover`, `:focu
 }
 ```
 
+### Transformações mais usadas
+
+O `transform` muda a aparência visual do elemento sem empurrar os outros itens do layout. A página traz uma galeria para comparar os efeitos ao passar o mouse ou navegar pelo teclado.
+
+| Função | Efeito |
+| --- | --- |
+| `translateX()` e `translateY()` | Move o elemento. |
+| `scale()` | Aumenta ou reduz o elemento. |
+| `rotate()` | Gira o elemento em graus. |
+| `skewX()` e `skewY()` | Inclina o elemento. |
+| Várias funções | Combina movimentos, por exemplo `translateY(-8px) rotate(-3deg)`. |
+| `transform-origin` | Define o ponto de origem da rotação ou escala. |
+
+É possível combinar várias funções em um único `transform`. A ordem faz diferença: primeiro o navegador aplica a função à esquerda e segue para as próximas.
+
 ### `@keyframes` e `animation`
 
 Use `@keyframes` quando o elemento precisa passar por uma sequência de estados. Os pontos `from` e `to` representam início e fim. Também é possível usar porcentagens para criar mais etapas.
@@ -47,6 +62,7 @@ Use `@keyframes` quando o elemento precisa passar por uma sequência de estados.
 ## Exemplos desta pasta
 
 - O cartão em `index.html` usa `transition` para responder ao mouse e ao teclado.
+- A galeria de transformações compara `translate`, `scale`, `rotate`, `skew`, combinações e `transform-origin`.
 - Os três pontos representam uma área de carregamento com atraso entre os elementos.
 - O balão de mensagem usa `@keyframes` para flutuar.
 - O controle de duração usa JavaScript para atualizar `animation-duration` em tempo real e permite pausar o movimento.
