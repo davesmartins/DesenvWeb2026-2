@@ -55,6 +55,37 @@ Use `@keyframes` quando o elemento precisa passar por uma sequência de estados.
 }
 ```
 
+### Órbitas do título
+
+No cabeçalho da página, o elemento `<div class="orbit">` desenha o anel grande. Dentro dele há três `<span>` vazios. Cada `span` vira um ponto luminoso porque recebe tamanho, cor, `border-radius: 50%` e sombra.
+
+```html
+<div class="orbit" aria-hidden="true">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+```
+
+O movimento parte do `@keyframes orbit`. A combinação de `rotate()` com `translateX(310px)` mantém o ponto afastado do centro enquanto ele gira. Na prática, esse deslocamento forma o caminho circular do ponto. O `translate(70px, 130px)` apenas ajusta a posição desse caminho dentro do anel.
+
+```css
+.orbit span {
+  animation: orbit 7s linear infinite;
+}
+
+@keyframes orbit {
+  from {
+    transform: translate(70px, 130px) rotate(0deg) translateX(310px);
+  }
+  to {
+    transform: translate(70px, 130px) rotate(360deg) translateX(310px);
+  }
+}
+```
+
+Os outros dois pontos reaproveitam a mesma animação, mas mudam de tamanho, cor, duração e atraso. Por exemplo, `animation-delay: -2s` faz o ponto entrar no meio do ciclo, evitando que todos saiam juntos. A animação é decorativa, por isso o contêiner usa `aria-hidden="true"` e não interfere na leitura por tecnologias assistivas.
+
 ## Propriedades importantes
 
 | Propriedade                 | Para que serve                                                   |
