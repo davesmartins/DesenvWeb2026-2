@@ -10,7 +10,9 @@ Use `transition` quando já existe uma mudança de estado, como `:hover`, `:focu
 
 ```css
 .cartao {
-  transition: transform .25s ease, background-color .25s ease;
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease;
 }
 
 .cartao:hover {
@@ -22,14 +24,14 @@ Use `transition` quando já existe uma mudança de estado, como `:hover`, `:focu
 
 O `transform` muda a aparência visual do elemento sem empurrar os outros itens do layout. A página traz uma galeria para comparar os efeitos ao passar o mouse ou navegar pelo teclado.
 
-| Função | Efeito |
-| --- | --- |
-| `translateX()` e `translateY()` | Move o elemento. |
-| `scale()` | Aumenta ou reduz o elemento. |
-| `rotate()` | Gira o elemento em graus. |
-| `skewX()` e `skewY()` | Inclina o elemento. |
-| Várias funções | Combina movimentos, por exemplo `translateY(-8px) rotate(-3deg)`. |
-| `transform-origin` | Define o ponto de origem da rotação ou escala. |
+| Função                          | Efeito                                                            |
+| ------------------------------- | ----------------------------------------------------------------- |
+| `translateX()` e `translateY()` | Move o elemento.                                                  |
+| `scale()`                       | Aumenta ou reduz o elemento.                                      |
+| `rotate()`                      | Gira o elemento em graus.                                         |
+| `skewX()` e `skewY()`           | Inclina o elemento.                                               |
+| Várias funções                  | Combina movimentos, por exemplo `translateY(-8px) rotate(-3deg)`. |
+| `transform-origin`              | Define o ponto de origem da rotação ou escala.                    |
 
 É possível combinar várias funções em um único `transform`. A ordem faz diferença: primeiro o navegador aplica a função à esquerda e segue para as próximas.
 
@@ -39,8 +41,13 @@ Use `@keyframes` quando o elemento precisa passar por uma sequência de estados.
 
 ```css
 @keyframes flutuar {
-  0%, 100% { transform: translateY(6px); }
-  50% { transform: translateY(-12px); }
+  0%,
+  100% {
+    transform: translateY(6px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
 }
 
 .aviso {
@@ -50,14 +57,14 @@ Use `@keyframes` quando o elemento precisa passar por uma sequência de estados.
 
 ## Propriedades importantes
 
-| Propriedade | Para que serve |
-| --- | --- |
-| `animation-name` | Escolhe o `@keyframes` usado. |
-| `animation-duration` | Define quanto tempo cada ciclo leva. |
+| Propriedade                 | Para que serve                                                   |
+| --------------------------- | ---------------------------------------------------------------- |
+| `animation-name`            | Escolhe o `@keyframes` usado.                                    |
+| `animation-duration`        | Define quanto tempo cada ciclo leva.                             |
 | `animation-timing-function` | Controla o ritmo, por exemplo `ease`, `linear` ou `ease-in-out`. |
-| `animation-delay` | Espera um tempo antes de começar. |
-| `animation-iteration-count` | Escolhe quantas vezes a animação repete. |
-| `animation-play-state` | Pausa ou retoma uma animação. |
+| `animation-delay`           | Espera um tempo antes de começar.                                |
+| `animation-iteration-count` | Escolhe quantas vezes a animação repete.                         |
+| `animation-play-state`      | Pausa ou retoma uma animação.                                    |
 
 ## Exemplos desta pasta
 

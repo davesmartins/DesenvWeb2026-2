@@ -1,10 +1,10 @@
-const durationInput = document.querySelector('#duration');
-const durationValue = document.querySelector('#duration-value');
-const durationCode = document.querySelector('#duration-code');
-const toggleButton = document.querySelector('#toggle-animation');
-const runner = document.querySelector('.runner');
+const durationInput = document.querySelector("#duration");
+const durationValue = document.querySelector("#duration-value");
+const durationCode = document.querySelector("#duration-code");
+const toggleButton = document.querySelector("#toggle-animation");
+const runner = document.querySelector(".runner");
 
-durationInput.addEventListener('input', () => {
+durationInput.addEventListener("input", () => {
   const duration = `${durationInput.value}s`;
   durationValue.value = duration;
   durationCode.textContent = duration;
@@ -12,7 +12,7 @@ durationInput.addEventListener('input', () => {
 });
 
 function toggleAnimation() {
-  const paused = runner.style.animationPlayState === 'paused';
-  runner.style.animationPlayState = paused ? 'running' : 'paused';
-  toggleButton.textContent = paused ? 'Pausar animação' : 'Retomar animação';
+  const paused = runner.style.animationPlayState === "paused";
+  runner.style.animationPlayState = paused ? "running" : "paused";
+  toggleButton.textContent = paused ? "Pausar animação" : "Retomar animação";
 }

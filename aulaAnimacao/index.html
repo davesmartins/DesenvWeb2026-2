@@ -1,213 +1,398 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CSS Animations - Exemplos Práticos</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header class="main-header">
-    <div class="header-content">
-      <span class="badge">Aula prática</span>
-      <h1>Movimento com CSS</h1>
-      <p>Transições para respostas imediatas. Animações para mostrar mudanças ao longo do tempo.</p>
-    </div>
-    <div class="orbit" aria-hidden="true"><span></span><span></span><span></span></div>
-  </header>
-
-  <main class="content-wrapper">
-    <section class="intro-grid" aria-labelledby="ideia-principal">
-      <div>
-        <p class="eyebrow">IDEIA PRINCIPAL</p>
-        <h2 id="ideia-principal">Uma animação deve explicar alguma coisa.</h2>
-        <p>Ela pode indicar que um botão recebeu o clique, que uma tarefa está sendo carregada ou que um conteúdo acabou de aparecer.</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Animations - Exemplos Práticos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="header-content">
+        <span class="badge">Aula prática</span>
+        <h1>Movimento com CSS</h1>
+        <p>
+          Transições para respostas imediatas. Animações para mostrar mudanças
+          ao longo do tempo.
+        </p>
       </div>
-      <div class="formula" aria-label="Fórmula básica de uma animação CSS">
-        <span>@keyframes</span>
-        <b>+</b>
-        <span>animation</span>
+      <div class="orbit" aria-hidden="true">
+        <span></span><span></span><span></span>
       </div>
-    </section>
+    </header>
 
-    <section class="lesson-section" aria-labelledby="transicoes">
-      <div class="section-heading">
-        <span class="number">01</span>
+    <main class="content-wrapper">
+      <section class="intro-grid" aria-labelledby="ideia-principal">
         <div>
-          <h2 id="transicoes">Transition e transform: resposta a uma interação</h2>
-          <p>A transição suaviza a mudança entre o estado normal e o estado de <code>:hover</code> ou <code>:focus-visible</code>.</p>
+          <p class="eyebrow">IDEIA PRINCIPAL</p>
+          <h2 id="ideia-principal">Uma animação deve explicar alguma coisa.</h2>
+          <p>
+            Ela pode indicar que um botão recebeu o clique, que uma tarefa está
+            sendo carregada ou que um conteúdo acabou de aparecer.
+          </p>
         </div>
-      </div>
-
-      <div class="demo-box transition-demo">
-        <div class="demo-copy">
-          <h3>Passe o mouse no cartão</h3>
-          <p>Em telas touch, toque no cartão para enxergar a mudança de estado.</p>
-          <code class="code-line">transition: transform .25s ease, background-color .25s ease;</code>
+        <div class="formula" aria-label="Fórmula básica de uma animação CSS">
+          <span>@keyframes</span>
+          <b>+</b>
+          <span>animation</span>
         </div>
-        <button class="profile-card" type="button" aria-label="Cartão de exemplo interativo" aria-pressed="false" onclick="this.classList.toggle('is-active'); this.setAttribute('aria-pressed', this.classList.contains('is-active'))">
-          <span class="card-icon">✦</span>
-          <span class="card-title">Projeto salvo</span>
-          <span class="card-text">O cartão sobe e muda de cor.</span>
-        </button>
-      </div>
+      </section>
 
-      <div class="transform-gallery" aria-label="Galeria de exemplos da propriedade transform">
-        <article class="transform-example">
-          <div class="transform-stage"><button class="transform-object translate" type="button" aria-pressed="false" onclick="this.classList.toggle('is-active'); this.setAttribute('aria-pressed', this.classList.contains('is-active'))">translate</button></div>
-          <h3>translate()</h3>
-          <p>Move o item nos eixos X e Y.</p>
-          <code>translateY(-12px)</code>
-        </article>
-        <article class="transform-example">
-          <div class="transform-stage"><button class="transform-object scale" type="button" aria-pressed="false" onclick="this.classList.toggle('is-active'); this.setAttribute('aria-pressed', this.classList.contains('is-active'))">scale</button></div>
-          <h3>scale()</h3>
-          <p>Aumenta ou reduz sem mudar o layout.</p>
-          <code>scale(1.12)</code>
-        </article>
-        <article class="transform-example">
-          <div class="transform-stage"><button class="transform-object rotate" type="button" aria-pressed="false" onclick="this.classList.toggle('is-active'); this.setAttribute('aria-pressed', this.classList.contains('is-active'))">rotate</button></div>
-          <h3>rotate()</h3>
-          <p>Gira o elemento ao redor do centro.</p>
-          <code>rotate(12deg)</code>
-        </article>
-        <article class="transform-example">
-          <div class="transform-stage"><button class="transform-object skew" type="button" aria-pressed="false" onclick="this.classList.toggle('is-active'); this.setAttribute('aria-pressed', this.classList.contains('is-active'))">skew</button></div>
-          <h3>skew()</h3>
-          <p>Inclina o elemento em um eixo.</p>
-          <code>skewX(-10deg)</code>
-        </article>
-        <article class="transform-example">
-          <div class="transform-stage"><button class="transform-object combo" type="button" aria-pressed="false" onclick="this.classList.toggle('is-active'); this.setAttribute('aria-pressed', this.classList.contains('is-active'))">combo</button></div>
-          <h3>Combinação</h3>
-          <p>Mais de uma transformação no mesmo efeito.</p>
-          <code>translateY(-8px) rotate(-3deg)</code>
-        </article>
-        <article class="transform-example">
-          <div class="transform-stage"><button class="transform-object origin" type="button" aria-pressed="false" onclick="this.classList.toggle('is-active'); this.setAttribute('aria-pressed', this.classList.contains('is-active'))">origem</button></div>
-          <h3>transform-origin</h3>
-          <p>Muda o ponto usado para girar.</p>
-          <code>transform-origin: left;</code>
-        </article>
-      </div>
-    </section>
+      <section class="lesson-section" aria-labelledby="transicoes">
+        <div class="section-heading">
+          <span class="number">01</span>
+          <div>
+            <h2 id="transicoes">
+              Transition e transform: resposta a uma interação
+            </h2>
+            <p>
+              A transição suaviza a mudança entre o estado normal e o estado de
+              <code>:hover</code> ou <code>:focus-visible</code>.
+            </p>
+          </div>
+        </div>
 
-    <section class="lesson-section" aria-labelledby="keyframes">
-      <div class="section-heading">
-        <span class="number">02</span>
+        <div class="demo-box transition-demo">
+          <div class="demo-copy">
+            <h3>Passe o mouse no cartão</h3>
+            <p>
+              Em telas touch, toque no cartão para enxergar a mudança de estado.
+            </p>
+            <pre class="code-sample"><code>.profile-card {
+  transition: transform .25s ease;
+}
+
+.profile-card:hover {
+  transform: translateY(-8px);
+}</code></pre>
+          </div>
+          <button
+            class="profile-card"
+            type="button"
+            aria-label="Cartão de exemplo interativo"
+            aria-pressed="false"
+            onclick="this.classList.toggle('is-active'); this.setAttribute('aria-pressed', this.classList.contains('is-active'))"
+          >
+            <span class="card-icon">✦</span>
+            <span class="card-title">Projeto salvo</span>
+            <span class="card-text">O cartão sobe e muda de cor.</span>
+          </button>
+        </div>
+
+        <div
+          class="transform-gallery"
+          aria-label="Galeria de exemplos da propriedade transform"
+        >
+          <article class="transform-example">
+            <div class="transform-stage">
+              <button
+                class="transform-object translate"
+                type="button"
+                aria-pressed="false"
+                onclick="this.classList.toggle('is-active'); this.setAttribute('aria-pressed', this.classList.contains('is-active'))"
+              >
+                translate
+              </button>
+            </div>
+            <h3>translate()</h3>
+            <p>Move o item nos eixos X e Y.</p>
+            <pre class="code-sample"><code>.translate:hover {
+  transform: translateY(-12px);
+}</code></pre>
+          </article>
+          <article class="transform-example">
+            <div class="transform-stage">
+              <button
+                class="transform-object scale"
+                type="button"
+                aria-pressed="false"
+                onclick="this.classList.toggle('is-active'); this.setAttribute('aria-pressed', this.classList.contains('is-active'))"
+              >
+                scale
+              </button>
+            </div>
+            <h3>scale()</h3>
+            <p>Aumenta ou reduz sem mudar o layout.</p>
+            <pre class="code-sample"><code>.scale:hover {
+  transform: scale(1.12);
+}</code></pre>
+          </article>
+          <article class="transform-example">
+            <div class="transform-stage">
+              <button
+                class="transform-object rotate"
+                type="button"
+                aria-pressed="false"
+                onclick="this.classList.toggle('is-active'); this.setAttribute('aria-pressed', this.classList.contains('is-active'))"
+              >
+                rotate
+              </button>
+            </div>
+            <h3>rotate()</h3>
+            <p>Gira o elemento ao redor do centro.</p>
+            <pre class="code-sample"><code>.rotate:hover {
+  transform: rotate(12deg);
+}</code></pre>
+          </article>
+          <article class="transform-example">
+            <div class="transform-stage">
+              <button
+                class="transform-object skew"
+                type="button"
+                aria-pressed="false"
+                onclick="this.classList.toggle('is-active'); this.setAttribute('aria-pressed', this.classList.contains('is-active'))"
+              >
+                skew
+              </button>
+            </div>
+            <h3>skew()</h3>
+            <p>Inclina o elemento em um eixo.</p>
+            <pre class="code-sample"><code>.skew:hover {
+  transform: skewX(-10deg);
+}</code></pre>
+          </article>
+          <article class="transform-example">
+            <div class="transform-stage">
+              <button
+                class="transform-object combo"
+                type="button"
+                aria-pressed="false"
+                onclick="this.classList.toggle('is-active'); this.setAttribute('aria-pressed', this.classList.contains('is-active'))"
+              >
+                combo
+              </button>
+            </div>
+            <h3>Combinação</h3>
+            <p>Mais de uma transformação no mesmo efeito.</p>
+            <pre class="code-sample"><code>.combo:hover {
+  transform: translateY(-8px) rotate(-3deg);
+}</code></pre>
+          </article>
+          <article class="transform-example">
+            <div class="transform-stage">
+              <button
+                class="transform-object origin"
+                type="button"
+                aria-pressed="false"
+                onclick="this.classList.toggle('is-active'); this.setAttribute('aria-pressed', this.classList.contains('is-active'))"
+              >
+                origem
+              </button>
+            </div>
+            <h3>transform-origin</h3>
+            <p>Muda o ponto usado para girar.</p>
+            <pre class="code-sample"><code>.origin {
+  transform-origin: left center;
+}</code></pre>
+          </article>
+        </div>
+      </section>
+
+      <section class="lesson-section" aria-labelledby="keyframes">
+        <div class="section-heading">
+          <span class="number">02</span>
+          <div>
+            <h2 id="keyframes">@keyframes: uma sequência de estados</h2>
+            <p>
+              Use quando o elemento precisa percorrer mais de um ponto, sem
+              depender da interação da pessoa.
+            </p>
+          </div>
+        </div>
+
+        <div class="demos-grid">
+          <article class="demo-box">
+            <div class="demo-title">
+              <h3>Carregamento</h3>
+              <code>animation: pulse 1s ease-in-out infinite;</code>
+            </div>
+            <div
+              class="loader-stage"
+              aria-label="Exemplo visual de carregamento"
+            >
+              <span></span><span></span><span></span>
+            </div>
+            <pre class="code-sample"><code>@keyframes pulse {
+  50% { transform: scale(1); opacity: 1; }
+}
+
+.loader-stage span {
+  animation: pulse 1s ease-in-out infinite;
+}</code></pre>
+          </article>
+
+          <article class="demo-box">
+            <div class="demo-title">
+              <h3>Chamada de atenção</h3>
+              <code>animation: float 1.8s ease-in-out infinite;</code>
+            </div>
+            <div
+              class="float-stage"
+              aria-label="Exemplo visual de elemento flutuando"
+            >
+              <div class="message-bubble">Nova mensagem <b>1</b></div>
+            </div>
+            <pre class="code-sample"><code>@keyframes float {
+  50% { transform: translateY(-12px); }
+}
+
+.message-bubble {
+  animation: float 1.8s ease-in-out infinite;
+}</code></pre>
+          </article>
+        </div>
+      </section>
+
+      <section class="lesson-section" aria-labelledby="controles">
+        <div class="section-heading">
+          <span class="number">03</span>
+          <div>
+            <h2 id="controles">Controle de tempo</h2>
+            <p>
+              Experimente alterar a duração. Valores menores deixam o movimento
+              mais rápido.
+            </p>
+          </div>
+        </div>
+
+        <div class="demo-box controls-demo">
+          <div class="control-panel">
+            <label for="duration"
+              >Duração: <output id="duration-value">1.2s</output></label
+            >
+            <input
+              id="duration"
+              type="range"
+              min="0.4"
+              max="3"
+              value="1.2"
+              step="0.2"
+            />
+            <button
+              id="toggle-animation"
+              class="control-button"
+              type="button"
+              onclick="toggleAnimation()"
+            >
+              Pausar animação
+            </button>
+          </div>
+          <div
+            class="track"
+            aria-label="Demonstração da duração de uma animação"
+          >
+            <div class="runner"><span>CSS</span></div>
+          </div>
+          <pre class="code-sample dynamic-code"><code>.runner {
+  animation: move <span id="duration-code">1.2s</span> linear infinite alternate;
+}</code></pre>
+        </div>
+      </section>
+
+      <section class="lesson-section" aria-labelledby="outros-efeitos">
+        <div class="section-heading">
+          <span class="number">04</span>
+          <div>
+            <h2 id="outros-efeitos">Outros efeitos úteis</h2>
+            <p>
+              Cada efeito abaixo aparece em situações diferentes de uma
+              interface real.
+            </p>
+          </div>
+        </div>
+
+        <div class="effects-grid">
+          <article class="effect-card">
+            <div class="demo-title">
+              <h3>Entrada de conteúdo</h3>
+              <code>animation-fill-mode: both;</code>
+            </div>
+            <div
+              class="effect-stage reveal-stage"
+              aria-label="Exemplo de conteúdo aparecendo"
+            >
+              <div class="reveal-item reveal-one"></div>
+              <div class="reveal-item reveal-two"></div>
+              <div class="reveal-item reveal-three"></div>
+            </div>
+            <p>
+              Uma sequência curta deixa clara a ordem em que os itens chegaram.
+            </p>
+            <pre class="code-sample"><code>.reveal-item {
+  animation: reveal .6s ease both;
+}</code></pre>
+          </article>
+
+          <article class="effect-card">
+            <div class="demo-title">
+              <h3>Digitando uma mensagem</h3>
+              <code>steps(18, end)</code>
+            </div>
+            <div
+              class="effect-stage typing-stage"
+              aria-label="Exemplo de texto sendo digitado"
+            >
+              <span class="typing-text">Mensagem enviada!</span
+              ><span class="cursor" aria-hidden="true"></span>
+            </div>
+            <p>
+              <code>steps()</code> cria intervalos marcados, sem o movimento
+              contínuo de <code>ease</code>.
+            </p>
+            <pre class="code-sample"><code>.typing-text {
+  animation: typing 2.4s steps(18, end);
+}</code></pre>
+          </article>
+
+          <article class="effect-card">
+            <div class="demo-title">
+              <h3>Brilho em carregamento</h3>
+              <code>background-position</code>
+            </div>
+            <div
+              class="effect-stage shimmer-stage"
+              aria-label="Exemplo de carregamento do tipo skeleton"
+            >
+              <div class="skeleton avatar"></div>
+              <div class="skeleton-lines">
+                <div class="skeleton line-long"></div>
+                <div class="skeleton line-short"></div>
+              </div>
+            </div>
+            <p>
+              Útil quando o espaço do conteúdo já está reservado enquanto os
+              dados chegam.
+            </p>
+            <pre class="code-sample"><code>.skeleton {
+  animation: shimmer 1.35s ease infinite;
+}</code></pre>
+          </article>
+        </div>
+      </section>
+
+      <section class="tip-box" aria-labelledby="acessibilidade">
+        <span aria-hidden="true">✓</span>
         <div>
-          <h2 id="keyframes">@keyframes: uma sequência de estados</h2>
-          <p>Use quando o elemento precisa percorrer mais de um ponto, sem depender da interação da pessoa.</p>
+          <h2 id="acessibilidade">Cuidado com excesso de movimento</h2>
+          <p>
+            Evite animações longas, rápidas ou que escondam conteúdo. O CSS
+            abaixo respeita a preferência de reduzir movimento configurada no
+            sistema.
+          </p>
+          <code>@media (prefers-reduced-motion: reduce) { ... }</code>
         </div>
-      </div>
+      </section>
+    </main>
 
-      <div class="demos-grid">
-        <article class="demo-box">
-          <div class="demo-title">
-            <h3>Carregamento</h3>
-            <code>animation: pulse 1s ease-in-out infinite;</code>
-          </div>
-          <div class="loader-stage" aria-label="Exemplo visual de carregamento">
-            <span></span><span></span><span></span>
-          </div>
-        </article>
-
-        <article class="demo-box">
-          <div class="demo-title">
-            <h3>Chamada de atenção</h3>
-            <code>animation: float 1.8s ease-in-out infinite;</code>
-          </div>
-          <div class="float-stage" aria-label="Exemplo visual de elemento flutuando">
-            <div class="message-bubble">Nova mensagem <b>1</b></div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="lesson-section" aria-labelledby="controles">
-      <div class="section-heading">
-        <span class="number">03</span>
-        <div>
-          <h2 id="controles">Controle de tempo</h2>
-          <p>Experimente alterar a duração. Valores menores deixam o movimento mais rápido.</p>
-        </div>
-      </div>
-
-      <div class="demo-box controls-demo">
-        <div class="control-panel">
-          <label for="duration">Duração: <output id="duration-value">1.2s</output></label>
-          <input id="duration" type="range" min="0.4" max="3" value="1.2" step="0.2">
-          <button id="toggle-animation" class="control-button" type="button" onclick="toggleAnimation()">Pausar animação</button>
-        </div>
-        <div class="track" aria-label="Demonstração da duração de uma animação">
-          <div class="runner"><span>CSS</span></div>
-        </div>
-        <p class="code-line dynamic-code">animation: move <span id="duration-code">1.2s</span> linear infinite alternate;</p>
-      </div>
-    </section>
-
-    <section class="lesson-section" aria-labelledby="outros-efeitos">
-      <div class="section-heading">
-        <span class="number">04</span>
-        <div>
-          <h2 id="outros-efeitos">Outros efeitos úteis</h2>
-          <p>Cada efeito abaixo aparece em situações diferentes de uma interface real.</p>
-        </div>
-      </div>
-
-      <div class="effects-grid">
-        <article class="effect-card">
-          <div class="demo-title">
-            <h3>Entrada de conteúdo</h3>
-            <code>animation-fill-mode: both;</code>
-          </div>
-          <div class="effect-stage reveal-stage" aria-label="Exemplo de conteúdo aparecendo">
-            <div class="reveal-item reveal-one"></div>
-            <div class="reveal-item reveal-two"></div>
-            <div class="reveal-item reveal-three"></div>
-          </div>
-          <p>Uma sequência curta deixa clara a ordem em que os itens chegaram.</p>
-        </article>
-
-        <article class="effect-card">
-          <div class="demo-title">
-            <h3>Digitando uma mensagem</h3>
-            <code>steps(18, end)</code>
-          </div>
-          <div class="effect-stage typing-stage" aria-label="Exemplo de texto sendo digitado">
-            <span class="typing-text">Mensagem enviada!</span><span class="cursor" aria-hidden="true"></span>
-          </div>
-          <p><code>steps()</code> cria intervalos marcados, sem o movimento contínuo de <code>ease</code>.</p>
-        </article>
-
-        <article class="effect-card">
-          <div class="demo-title">
-            <h3>Brilho em carregamento</h3>
-            <code>background-position</code>
-          </div>
-          <div class="effect-stage shimmer-stage" aria-label="Exemplo de carregamento do tipo skeleton">
-            <div class="skeleton avatar"></div>
-            <div class="skeleton-lines"><div class="skeleton line-long"></div><div class="skeleton line-short"></div></div>
-          </div>
-          <p>Útil quando o espaço do conteúdo já está reservado enquanto os dados chegam.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="tip-box" aria-labelledby="acessibilidade">
-      <span aria-hidden="true">✓</span>
-      <div>
-        <h2 id="acessibilidade">Cuidado com excesso de movimento</h2>
-        <p>Evite animações longas, rápidas ou que escondam conteúdo. O CSS abaixo respeita a preferência de reduzir movimento configurada no sistema.</p>
-        <code>@media (prefers-reduced-motion: reduce) { ... }</code>
-      </div>
-    </section>
-  </main>
-
-  <footer class="page-footer">Desenvolvimento de Web Sites · CSS: transition, @keyframes e animation</footer>
-  <script src="script.js"></script>
-</body>
+    <footer class="page-footer">
+      Desenvolvimento de Web Sites · CSS: transition, @keyframes e animation
+    </footer>
+    <script src="script.js"></script>
+  </body>
 </html>
